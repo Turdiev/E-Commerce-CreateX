@@ -1,0 +1,17 @@
+.container {
+  margin: 0 auto;
+  max-width: 1260px;
+  width: calc(100vw - 60px);
+
+  @include respond-to(tablet) {
+    width: 100%;
+    max-width: none;
+    padding-left: $y-offset-tablet;
+    padding-right: $y-offset-tablet;
+  }
+
+  @include respond-to(mobile) {
+    padding-left: $y-offset-mobile;
+    padding-right: $y-offset-mobile;
+  }
+}

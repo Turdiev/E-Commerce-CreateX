@@ -1,0 +1,63 @@
+/*
+** Colors
+*/
+$body-color: #E5E5E5;
+$white: #fff;
+
+$primary: #17696A;
+$green: #03CEA4;
+$red: #FF4242;
+$orange: #F89828;
+$blue: #5A87FC;
+
+$gray-900: #1E212C;
+$gray-800: #424551;
+$gray-700: #787A80;
+$gray-600: #9A9CA5;
+$gray-500: #B3B7BC;
+$gray-400: #D7DADD;
+$gray-300: #E5E8ED;
+$gray-200: #F4F5F7;
+$gray-100: #F9F9F9;
+
+
+/*
+** Font-family
+*/
+$font-primary: "Lato";
+$font-base: $font-primary;
+
+
+/*
+** Font-size
+*/
+$font-size: 16px;
+$h1-size: 46px;
+$h2-size: 32px;
+$h3-size: 28px;
+$h4-size: 24px;
+$h5-size: 20px;
+$h6-size: 16px;
+
+
+
+/*
+** Breakpoints
+*/
+$mobile: 768px;
+$tablet: 992px;
+$laptop: 1280px;
+
+$breakpoints: (
+        'mobile': (max-width: $mobile),
+        'tablet': (max-width: $tablet - 1),
+        'laptop': (max-width: $laptop - 1)
+) !default;
+
+/*
+** Grids
+*/
+
+$y-offset-tablet: 26px;
+$y-offset-mobile: 32px;
+
