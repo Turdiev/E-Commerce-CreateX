@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
-  width: 350px;
+  width: 349px;
 
   &__wrapper {
     display: flex;

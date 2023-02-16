@@ -4,7 +4,7 @@
     <div class="container">
       <div class="header__wrapper">
         <TheLogo class="header__logo" />
-        <TheMenu />
+        <TheMenu class="header__menu"/>
         <div class="header__search">
           <UiInput
             v-model="searchValue"
@@ -80,6 +80,11 @@ export default {
 
   &__logo {
     width: 130px;
+    margin-right: 12px;
+  }
+
+  &__menu {
+    margin-right: 83px;
   }
 
   &__search {
