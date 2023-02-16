@@ -1,7 +1,7 @@
 .container {
   margin: 0 auto;
   max-width: 1260px;
-  width: calc(100vw - 60px);
+  width: calc(100vw - 30px);
 
   @include respond-to(tablet) {
     width: 100%;

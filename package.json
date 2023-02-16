@@ -50,7 +50,8 @@
       "vue/max-attributes-per-line": "error",
       "vue/no-dupe-keys": "error",
       "vue/no-irregular-whitespace": "error",
-      "vue/order-in-components": "error"
+      "vue/order-in-components": "error",
+      "vue/no-parsing-error": "off"
     }
   },
   "browserslist": [

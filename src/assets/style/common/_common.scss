@@ -38,8 +38,8 @@ a {
 
   &:hover {
     text-decoration: none;
-    color: $red;
-    transition: all .2s ease;
+    color: $primary;
+    transition: $defaultTransition;
   }
 
   &.disabled {

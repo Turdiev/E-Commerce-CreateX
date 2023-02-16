@@ -1,15 +1,12 @@
 <template>
-  <div class="home container">
-    <img
-      alt="Vue logo"
-      src="../assets/logo.png"
-    >
+  <div class="home">
+    <h1>Hui</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeView',
+  name: 'HomePage',
   components: {
   }
 }

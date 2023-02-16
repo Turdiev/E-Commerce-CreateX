@@ -6,7 +6,13 @@ import i18n from '@/boot/i18n'
 
 import '@/assets/style/main.scss'
 
+import {components} from "@/components/core/icons/icons"
+
 Vue.config.productionTip = false
+
+components.forEach(component => {
+  Vue.component(component.name, component)
+});
 
 new Vue({
   store,

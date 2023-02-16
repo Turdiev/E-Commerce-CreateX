@@ -9,3 +9,16 @@
         }
     }
 }
+
+@mixin text-style {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $white;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 1;
+        transition: $defaultTransition;
+    }
+}

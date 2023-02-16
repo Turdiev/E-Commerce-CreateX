@@ -9,7 +9,7 @@ const localeSelected = localStorage.getItem('locale')
 const currentLocale = localeSelected || locale
 
 export default new VueI18n({
-    locale: currentLocale,
+    locale: 'en-us', // currentLocale
     fallbackLocale: currentLocale,
     messages
 })
