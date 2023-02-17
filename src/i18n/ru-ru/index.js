@@ -47,6 +47,20 @@ export default {
       ],
       currency: 'Рус/руб',
       logIn: 'Log in / Register'
+    },
+    specialOffers: {
+      slides: [
+        {
+          description: 'Скидка до 70%. ',
+          linkName: 'Магазин распродажи',
+          path: '/'
+        },
+        {
+          description: 'Скидка до 60%. ',
+          linkName: 'Магазин распродажи',
+          path: '/'
+        }
+      ]
     }
   }
 }

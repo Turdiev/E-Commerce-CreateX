@@ -47,6 +47,20 @@ export default {
       ],
       currency: 'ENG/$',
       logIn: 'Log in / Register'
+    },
+    specialOffers: {
+      slides: [
+        {
+          description: 'Up to 70% Off. ',
+          linkName: 'Shop our latest sale styles',
+          path: '/'
+        },
+        {
+          description: 'Up to 60% Off. ',
+          linkName: 'Shop our latest sale styles',
+          path: '/'
+        }
+      ]
     }
   }
 }

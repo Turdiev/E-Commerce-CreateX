@@ -4,7 +4,7 @@
     <div class="container">
       <div class="header__wrapper">
         <TheLogo class="header__logo" />
-        <TheMenu class="header__menu"/>
+        <TheMenu class="header__menu" />
         <div class="header__search">
           <UiInput
             v-model="searchValue"
@@ -34,6 +34,7 @@
         </div>
       </div>
     </div>
+    <HeaderSpecialOffers />
   </header>
 </template>
 
@@ -42,10 +43,12 @@ import PreHeader from "@/components/header/PreHeader.vue";
 import TheLogo from "@/components/TheLogo.vue";
 import TheMenu from "@/components/TheMenu.vue";
 import UiInput from "@/components/ui/UiInput/UIInput.vue";
+import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
 export default {
   name: 'TheHeader',
 
   components: {
+    HeaderSpecialOffers,
     UiInput,
     TheMenu,
     TheLogo,
