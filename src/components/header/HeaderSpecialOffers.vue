@@ -35,7 +35,6 @@ export default {
 
   computed: {
     i18nSlides() {
-      console.log(this.$t('header.specialOffers.slides'))
       return this.$t('header.specialOffers.slides')
     }
   }

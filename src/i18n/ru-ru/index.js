@@ -26,7 +26,8 @@ export default {
       placeholder: 'Поиск продуктов...'
     },
     preHeader: {
-      available: 'Доступны 24/7 по телефону (405) 555-0128',
+      available: 'Доступны 24/7 по телефону ',
+      contact: '(405) 555-0128',
       menu: [
         {
           name: 'Доставка и возврат',
@@ -61,6 +62,9 @@ export default {
           path: '/'
         }
       ]
+    },
+    mobile: {
+      catalog: 'Каталог'
     }
   }
 }

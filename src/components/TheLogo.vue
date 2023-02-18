@@ -24,6 +24,7 @@ export default {
   &__img {
     display: block;
     width: 100%;
+    min-height: 22px;
   }
 }
 </style>

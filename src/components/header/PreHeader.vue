@@ -3,9 +3,16 @@
     <div class="container">
       <div class="pre-header__wrapper">
         <div class="pre-header__available">
-          <span>{{ i18nPreHeader.available }}</span>
+          <span
+            v-if="!isMobile"
+            class="_not-hover"
+          >{{ i18nPreHeader.available }}</span>
+          <span class="_font-weight">{{ i18nPreHeader.contact }}</span>
         </div>
-        <nav class="pre-header__nav">
+        <nav
+          v-if="!isMobile"
+          class="pre-header__nav"
+        >
           <ul>
             <li
               v-for="(menu, index) in i18nPreHeader.menu"
@@ -18,7 +25,10 @@
           </ul>
         </nav>
         <div class="pre-header__actions">
-          <div class="pre-header__currency">
+          <div
+            v-if="!isMobile"
+            class="pre-header__currency"
+          >
             <IconFlagUsa class="icon-flag" />
             <span>{{ i18nPreHeader.currency }}</span>
             <IconDownArrow class="icon-down-arrow" />
@@ -40,6 +50,9 @@ export default {
   computed: {
     i18nPreHeader() {
       return this.$t('header.preHeader')
+    },
+    isMobile() {
+      return this.$mq === 'mobile'
     }
   }
 }
@@ -61,6 +74,16 @@ export default {
 
       & span {
         @include text-style()
+      }
+
+      & ._font-weight {
+        font-weight: 900;
+      }
+
+      & ._not-hover {
+        &:hover {
+          opacity: 0.6;
+        }
       }
     }
 
@@ -86,6 +109,11 @@ export default {
       display: flex;
       justify-content: space-between;
       width: 275px;
+
+      @include respond-to(mobile) {
+        justify-content: flex-end;
+        width: 150px;
+      }
     }
 
     &__currency {

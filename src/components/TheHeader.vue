@@ -2,9 +2,14 @@
   <header class="header">
     <PreHeader />
     <div class="container">
-      <div class="header__wrapper">
+      <div
+        v-if="!isBreakepoints"
+        class="header__wrapper"
+      >
         <TheLogo class="header__logo" />
-        <TheMenu class="header__menu" />
+        <TheMenu
+          class="header__menu"
+        />
         <div class="header__search">
           <UiInput
             v-model="searchValue"
@@ -33,6 +38,7 @@
           </div>
         </div>
       </div>
+      <HeaderMobile v-if="isBreakepoints" />
     </div>
     <HeaderSpecialOffers />
   </header>
@@ -41,13 +47,15 @@
 <script>
 import PreHeader from "@/components/header/PreHeader.vue";
 import TheLogo from "@/components/TheLogo.vue";
-import TheMenu from "@/components/TheMenu.vue";
-import UiInput from "@/components/ui/UiInput/UIInput.vue";
+import TheMenu from "@/components/core/menu/TheMenu.vue";
+import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
+import HeaderMobile from "@/components/header/HeaderMobile.vue";
 export default {
   name: 'TheHeader',
 
   components: {
+    HeaderMobile,
     HeaderSpecialOffers,
     UiInput,
     TheMenu,
@@ -64,8 +72,12 @@ export default {
   computed: {
     i18nHeader() {
       return this.$t('header')
-    }
-  }
+    },
+
+    isBreakepoints() {
+      return ['mobile','tablet'].includes(this.$mq)
+    },
+  },
 
 }
 </script>

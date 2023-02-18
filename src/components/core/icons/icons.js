@@ -4,6 +4,7 @@ import IconDownArrow from "@/components/core/icons/IconDownArrow.vue";
 import IconSearch from "@/components/core/icons/IconSearch.vue";
 import IconFavorites from "@/components/core/icons/IconFavorites.vue";
 import IconCart from "@/components/core/icons/IconCart.vue";
+import IconListBullet from "@/components/core/icons/IconListBullet.vue";
 
 export const components = [
     IconFlagUsa,
@@ -11,7 +12,8 @@ export const components = [
     IconDownArrow,
     IconSearch,
     IconFavorites,
-    IconCart
+    IconCart,
+    IconListBullet
 ]
 
 

@@ -26,7 +26,8 @@ export default {
       placeholder: 'Search for products...'
     },
     preHeader: {
-      available: 'Available 24/7 at (405) 555-0128',
+      available: 'Available 24/7 at ',
+      contact: '(405) 555-0128',
       menu: [
         {
           name: 'Delivery & returns',
@@ -61,6 +62,9 @@ export default {
           path: '/'
         }
       ]
+    },
+    mobile: {
+      catalog: 'Catalog'
     }
   }
 }
