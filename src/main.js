@@ -3,6 +3,7 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import i18n from '@/boot/i18n'
+import VueMq from 'vue-mq'
 
 import '@/assets/style/main.scss'
 
@@ -13,6 +14,15 @@ Vue.config.productionTip = false
 components.forEach(component => {
   Vue.component(component.name, component)
 });
+
+Vue.use(VueMq, {
+  breakpoints: {
+    mobile: 768,
+    tablet: 992,
+    laptop: 1280,
+    desktop: Infinity,
+  }
+})
 
 new Vue({
   store,
