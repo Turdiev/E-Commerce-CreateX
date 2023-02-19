@@ -23,19 +23,9 @@
           </UiInput>
         </div>
         <div class="header__actions">
-          <div class="header__actions-wishlist">
-            <IconFavorites />
-            <div class="counter">
-              <span>2</span>
-            </div>
-          </div>
+          <HeaderFavorites />
           <div class="divider" />
-          <div class="header__actions-cart">
-            <IconCart />
-            <div class="cart-counter">
-              <span>4</span>
-            </div>
-          </div>
+          <HeaderCart />
         </div>
       </div>
       <HeaderMobile v-if="isBreakepoints" />
@@ -51,10 +41,14 @@ import TheMenu from "@/components/core/menu/TheMenu.vue";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
+import HeaderFavorites from "@/components/header/HeaderFavorites.vue";
+import HeaderCart from "@/components/header/HeaderCart.vue";
 export default {
   name: 'TheHeader',
 
   components: {
+    HeaderCart,
+    HeaderFavorites,
     HeaderMobile,
     HeaderSpecialOffers,
     UiInput,
@@ -114,45 +108,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 131px;
-
-    &-wishlist {
-      display: flex;
-      align-items: center;
-
-      & .counter {
-        margin-left: 8.5px;
-
-        & span {
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 160%;
-          color: $gray-800;
-        }
-      }
-    }
-
-    &-cart {
-      display: flex;
-      align-items: center;
-
-      & .cart-counter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 23px;
-        height: 20px;
-        background: $green;
-        border-radius: 4px;
-        margin-left: 9.3px;
-
-        & span {
-          font-weight: 900;
-          font-size: 12px;
-          line-height: 150%;
-          color: $white;
-        }
-      }
-    }
 
     & .divider {
       width: 22px;

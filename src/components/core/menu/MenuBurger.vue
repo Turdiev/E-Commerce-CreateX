@@ -48,7 +48,7 @@ export default {
     height: 3px;
     background: $gray-900;
     transform: translate3d(-13px, 0, 0);
-    transition: all .3s ease;
+    transition: all .6s linear;
 
     &:nth-child(1) {
       top: 13px;
@@ -65,6 +65,8 @@ export default {
 }
 
 ._opened {
+  top: -50px;
+
   & span {
 
     &:nth-child(1) {

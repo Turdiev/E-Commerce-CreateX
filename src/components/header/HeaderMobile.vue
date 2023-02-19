@@ -132,23 +132,19 @@ export default {
   }
 }
 
-.fade-enter-active,
+.fade-enter-active {
+  animation: fade 1s;
+}
 .fade-leave-active {
-  transition: all .5s ease-in-out;
+  animation: fade 0.5s reverse;
 }
 
-.fade-enter-from {
-  transform: translateY(-900px);
-  transition: all 2s ease;
-}
-.fade-enter-to {
-  transform: translateY(0px);
-}
-
-.fade-leave-from {
-  transform: translateY(0px);
-}
-.fade-leave-to {
-  transform: translateY(-900px);
+@keyframes fade {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0;
+  }
 }
 </style>

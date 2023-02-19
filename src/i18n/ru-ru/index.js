@@ -65,6 +65,8 @@ export default {
     },
     mobile: {
       catalog: 'Каталог'
-    }
+    },
+    favorites: 'Избранное',
+    cart: 'Корзина'
   }
 }

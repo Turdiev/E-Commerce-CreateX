@@ -65,7 +65,9 @@ export default {
     },
     mobile: {
       catalog: 'Catalog'
-    }
+    },
+    favorites: 'Favorites',
+    cart: 'Orders'
   }
 }
   
