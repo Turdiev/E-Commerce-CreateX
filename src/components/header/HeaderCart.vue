@@ -56,7 +56,6 @@ export default {
     height: 20px;
     background: $green;
     border-radius: 4px;
-    margin-left: 9.3px;
 
     & span {
       font-weight: 900;

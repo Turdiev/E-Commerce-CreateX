@@ -3,6 +3,7 @@
     <div class="special-offers__wrapper">
       <VSwiper
         :is-pagination="false"
+        :is-btn-arrow="false"
       >
         <template #swiperSlide>
           <template

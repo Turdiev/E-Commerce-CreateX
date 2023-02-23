@@ -5,7 +5,7 @@ export const routes = [
         path: '/',
         components: { LayoutView: () => DefaultLayout },
         children: [
-            { path: '', components: { contentView: () => import('@/pages/HomeView.vue') } }
+            { path: '', components: { contentView: () => import('@/pages/HomePage.vue') } }
         ]
     },
 ]

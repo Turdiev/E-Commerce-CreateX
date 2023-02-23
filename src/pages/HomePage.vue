@@ -1,20 +1,23 @@
 <template>
   <div class="home">
-    <h1>Hui</h1>
+    <MainBanner />
   </div>
 </template>
 
 <script>
+import MainBanner from "@/components/banners/MainBanner.vue";
+
 export default {
   name: 'HomePage',
-  components: {
-  }
+  components: {MainBanner},
 }
 </script>
 
 <style lang="scss" scoped>
 .home {
   position: relative;
-  height: 100%;
 }
+
+
+
 </style>

@@ -51,7 +51,6 @@ export default {
   }
 
   &__counter {
-    margin-left: 8.5px;
 
     & span {
       font-weight: 400;
