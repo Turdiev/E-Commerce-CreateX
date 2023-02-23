@@ -68,6 +68,67 @@ export default {
     },
     favorites: 'Favorites',
     cart: 'Orders'
+  },
+  mainBanner: {
+    slides: [
+      {
+        title: 'Menswear 2021',
+        preTitle: 'New collection',
+        banner: 'main-banner.png',
+        links: [
+          {
+            labelLink: 'Shop sale',
+            path: '/',
+            outline: true,
+            solid: false
+          },
+          {
+            labelLink: 'Shop the menswear',
+            path: '/',
+            outline: false,
+            solid: true
+          }
+        ]
+      },
+      {
+        title: 'Menswear 2022',
+        preTitle: 'New collection',
+        banner: 'main-banner1.png',
+        links: [
+          {
+            labelLink: 'Shop sale',
+            path: '/',
+            outline: true,
+            solid: false
+          },
+          {
+            labelLink: 'Shop the menswear',
+            path: '/',
+            outline: false,
+            solid: true
+          }
+        ]
+      },
+      {
+        title: 'Menswear 2023',
+        preTitle: 'New collection',
+        banner: 'main-banner.png',
+        links: [
+          {
+            labelLink: 'Shop sale',
+            path: '/',
+            outline: true,
+            solid: false
+          },
+          {
+            labelLink: 'Shop the menswear',
+            path: '/',
+            outline: false,
+            solid: true
+          }
+        ]
+      }
+    ]
   }
 }
   

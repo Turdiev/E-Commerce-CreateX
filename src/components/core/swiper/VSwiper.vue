@@ -1,5 +1,4 @@
 <template>
-  <!-- Slider main container -->
   <div
     ref="swiper"
     class="swiper"
@@ -8,19 +7,40 @@
       <slot name="swiperSlide" />
     </div>
 
+    <!--    <div-->
+    <!--      v-show="isPagination"-->
+    <!--      ref="pagination"-->
+    <!--      class="swiper-pagination"-->
+    <!--    />-->
+    <div class="container">
+      <div class="pagination">
+        <VPagination
+          v-show="isPagination"
+          ref="pagination"
+        />
+      </div>
+    </div>
     <div
-      v-show="isPagination"
-      ref="pagination"
-      class="swiper-pagination"
-    />
-
-    <div
+      v-show="!isBtnArrow"
       ref="prev"
       class="swiper-button-prev"
     />
     <div
+      v-show="!isBtnArrow"
       ref="next"
       class="swiper-button-next"
+    />
+
+    <UiButtonArrow
+      v-if="isBtnArrow"
+      ref="prevArr"
+      :reverse="true"
+      class="swiper-button-prev button-arrow"
+    />
+    <UiButtonArrow
+      v-if="isBtnArrow"
+      ref="nextArr"
+      class="swiper-button-next button-arrow"
     />
 
     <!-- If we need scrollbar -->
@@ -34,23 +54,31 @@ import 'swiper/css';
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
+import UiButtonArrow from "@/components/ui/UiButton/UiButtonArrow.vue";
+import VPagination from "@/components/core/swiper/VPagination.vue";
 
 export default {
   name: 'VSwiper',
 
   components: {
+    VPagination,
+    UiButtonArrow
   },
 
   props: {
     isPagination: {
       type: Boolean,
       default: true
+    },
+    isBtnArrow: {
+      type: Boolean,
+      default: false
     }
   },
 
   data() {
     return {
-      swiper: null
+      swiper: null,
     }
   },
 
@@ -61,11 +89,18 @@ export default {
         loop: true,
 
         pagination: {
-          el: this.$refs.pagination
+          el: this.$refs.pagination.$el,
+          renderBullet: (index, className) => {
+            return `<div class="${className}">
+                      <span class="swiper-pagination-bullet-num">
+                       0${(index + 1)}
+                      </span>
+                    </div>`;
+          },
         },
         navigation: {
-          nextEl: this.$refs.next,
-          prevEl: this.$refs.prev,
+          nextEl: this.$refs.nextArr ? this.$refs.nextArr.$el : this.$refs.next,
+          prevEl: this.$refs.nextArr ? this.$refs.prevArr.$el : this.$refs.prev,
         },
 
         // And if we need scrollbar
@@ -83,6 +118,7 @@ export default {
   methods: {
     initSlider() {
       this.swiper = new Swiper(this.$refs.swiper, this.defaultParams)
+      console.log('Swiper' ,this.swiper.pagination)
     },
   }
 }
@@ -124,5 +160,22 @@ export default {
 }
 .swiper-button-next {
   right: 0;
+}
+
+.button-arrow {
+  top: 50%;
+
+  &:after {
+    content: '';
+  }
+}
+
+.pagination {
+  position: relative;
+  bottom: 185px;
+
+  @include respond-to(mobile) {
+    bottom: 20px;
+  }
 }
 </style>

@@ -68,5 +68,54 @@ export default {
     },
     favorites: 'Избранное',
     cart: 'Корзина'
+  },
+  mainBanner: {
+    slides: [
+      {
+        title: 'Мужская одежда 2021',
+        preTitle: 'Новая коллекция',
+        banner: '@assets/images/main-banner.png',
+        links: [
+          {
+            labelLink: 'Распродажа',
+            path: '/'
+          },
+          {
+            labelLink: 'Мужская одежда',
+            path: '/'
+          }
+        ]
+      },
+      {
+        title: 'Мужская одежда 2022',
+        preTitle: 'Новая коллекция',
+        banner: '@assets/images/main-banner.png',
+        links: [
+          {
+            labelLink: 'Распродажа',
+            path: '/'
+          },
+          {
+            labelLink: 'Мужская одежда',
+            path: '/'
+          }
+        ]
+      },
+      {
+        title: 'Мужская одежда 2023',
+        preTitle: 'Новая коллекция',
+        banner: '@assets/images/main-banner.png',
+        links: [
+          {
+            labelLink: 'Распродажа',
+            path: '/'
+          },
+          {
+            labelLink: 'Мужская одежда',
+            path: '/'
+          }
+        ]
+      },
+    ]
   }
 }
