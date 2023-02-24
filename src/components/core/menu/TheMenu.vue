@@ -1,10 +1,14 @@
 <template>
-  <nav class="menu">
+  <nav
+    class="menu"
+    @mouseleave="$emit('mouseleave', false)"
+  >
     <ul class="menu__wrapper">
       <li
         v-for="(menu, index) in i18nMenuList"
         :key="`${menu.name}_${index}`"
         class="menu__link"
+        @mouseenter="$emit('mouseenter', menu)"
       >
         <router-link :to="menu.path">
           {{ menu.name }}
@@ -28,12 +32,16 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
+  display: flex;
+  align-items: center;
   width: 349px;
+  height: 44px;
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   &__link {

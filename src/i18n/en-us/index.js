@@ -69,6 +69,108 @@ export default {
     favorites: 'Favorites',
     cart: 'Orders'
   },
+  menuDropdown: {
+    specialOffers: [
+      {
+        linkName: 'New collection',
+        path: '/'
+      },
+      {
+        linkName: 'Best Sellers',
+        path: '/'
+      },
+      {
+        linkName: 'Plus Size',
+        path: '/'
+      },
+      {
+        linkName: 'Sale up to 70%',
+        path: '/',
+        color: 'red'
+      },
+    ],
+    categories: [
+      {
+        title: 'CLOTHES',
+        list: [
+          {
+            linkName: 'Coats',
+            path: '/'
+          },
+          {
+            linkName: 'Jackets',
+            path: '/'
+          },
+          {
+            linkName: 'Suits',
+            path: '/'
+          },
+          {
+            linkName: 'Dresses ',
+            path: '/'
+          },
+          {
+            linkName: 'Cardigans & sweaters',
+            path: '/'
+          }
+        ]
+      },
+      {
+        title: 'SHOES',
+        list: [
+          {
+            linkName: 'Boots',
+            path: '/'
+          },
+          {
+            linkName: 'Flat shoes',
+            path: '/'
+          },
+          {
+            linkName: 'Heels',
+            path: '/'
+          },
+          {
+            linkName: 'Sandals ',
+            path: '/'
+          },
+          {
+            linkName: 'Mules',
+            path: '/'
+          }
+        ]
+      },
+      {
+        title: 'ACCESSORIES',
+        list: [
+          {
+            linkName: 'Bags & bagpacks',
+            path: '/'
+          },
+          {
+            linkName: 'Hats & scarves',
+            path: '/'
+          },
+          {
+            linkName: 'Hair accessories',
+            path: '/'
+          },
+          {
+            linkName: 'Belts ',
+            path: '/'
+          },
+          {
+            linkName: 'Jewellery',
+            path: '/'
+          }
+        ]
+      }
+    ],
+    banner: {
+      text: 'Back to school. Sale up to 50%',
+      button: 'See offers'
+    }
+  },
   mainBanner: {
     slides: [
       {

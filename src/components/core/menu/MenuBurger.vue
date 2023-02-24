@@ -39,6 +39,7 @@ export default {
   height: 46px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   z-index: 3;
 
   & span {
@@ -48,7 +49,7 @@ export default {
     height: 3px;
     background: $gray-900;
     transform: translate3d(-13px, 0, 0);
-    transition: all .6s linear;
+    transition: all .3s linear;
 
     &:nth-child(1) {
       top: 13px;

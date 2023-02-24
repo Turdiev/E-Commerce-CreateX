@@ -9,6 +9,8 @@
         <TheLogo class="header__logo" />
         <TheMenu
           class="header__menu"
+          @mouseenter="onMouseEnterLink"
+          @mouseleave="onMouseLeaveLink"
         />
         <div class="header__search">
           <UiInput
@@ -30,6 +32,27 @@
       </div>
       <HeaderMobile v-if="isBreakepoints" />
     </div>
+
+    <div
+      class="header__hidden-dropdown"
+      :class="{'_height-dropdown': isOpenDropdown}"
+      @mouseenter="onMouseEnterLink"
+      @mouseleave="onMouseLeaveLink"
+    >
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+        <MenuDropdown
+        />
+      </transition>
+    </div>
+    <transition name="fade">
+      <div
+        v-if="isOpenDropdown"
+        class="header__overlay"
+      />
+    </transition>
     <HeaderSpecialOffers />
   </header>
 </template>
@@ -43,10 +66,12 @@ import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import HeaderFavorites from "@/components/header/HeaderFavorites.vue";
 import HeaderCart from "@/components/header/HeaderCart.vue";
+import MenuDropdown from "@/components/core/menu/MenuDropdown.vue";
 export default {
   name: 'TheHeader',
 
   components: {
+    MenuDropdown,
     HeaderCart,
     HeaderFavorites,
     HeaderMobile,
@@ -59,7 +84,8 @@ export default {
 
   data() {
     return {
-      searchValue: null
+      searchValue: null,
+      isOpenDropdown: false
     }
   },
 
@@ -73,12 +99,25 @@ export default {
     },
   },
 
+  methods: {
+    onMouseEnterLink(val) {
+      console.log('VAL', val)
+      this.isOpenDropdown = true
+    },
+    onMouseLeaveLink(val) {
+      console.log('VAL leave', val)
+        this.isOpenDropdown = false
+    },
+  }
+
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
+  position: relative;
   background: $white;
+  z-index: 3;
 
   &__wrapper {
     display: flex;
@@ -115,6 +154,32 @@ export default {
       transform: rotate(90deg);
       background: $gray-600;
     }
+  }
+
+  &__hidden-dropdown {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    z-index: 3;
+
+    &._height-dropdown {
+      height: 487px;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    pointer-events: none;
+    background: rgba($gray-900, 0.75);
+    z-index: 2;
   }
 }
 </style>

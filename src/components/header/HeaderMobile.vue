@@ -28,13 +28,18 @@
     <MenuBurger
       @click="onOpenMenu"
     />
-
-    <Transition name="fade">
-      <MenuMobile
-        v-if="isOpenMenu"
-        class="header-mobile__menu"
-      />
-    </Transition>
+    <div
+      v-if="isOpenMenu"
+      class="header-mobile__menu"
+      :class="{'_show-menu': isOpenMenu}"
+    >
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+        <MenuMobile />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -128,23 +133,20 @@ export default {
   }
 
   &__menu {
-    //transform: translateY(0);
-  }
-}
-
-.fade-enter-active {
-  animation: fade 1s;
-}
-.fade-leave-active {
-  animation: fade 0.5s reverse;
-}
-
-@keyframes fade {
-  0% {
-    top: -100%;
-  }
-  100% {
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: $white;
+    overflow: hidden;
+    transition: height 1s ease-out;
+    z-index: 2;
+
+    &._show-menu {
+      height: 100vh;
+      transition: height 1s ease-out;
+    }
   }
 }
 </style>
