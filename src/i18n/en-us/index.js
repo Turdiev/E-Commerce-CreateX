@@ -231,6 +231,23 @@ export default {
         ]
       }
     ]
-  }
+  },
+  topCategories: [
+    {
+      image: 'womens.png',
+      label: 'Women’s',
+      path: '/'
+    },
+    {
+      image: 'mens.png',
+      label: 'Men’s',
+      path: '/'
+    },
+    {
+      image: 'kids.png',
+      label: 'Kids’',
+      path: '/'
+    }
+  ]
 }
   

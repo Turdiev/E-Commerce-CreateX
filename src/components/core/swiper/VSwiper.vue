@@ -118,7 +118,6 @@ export default {
   methods: {
     initSlider() {
       this.swiper = new Swiper(this.$refs.swiper, this.defaultParams)
-      console.log('Swiper' ,this.swiper.pagination)
     },
   }
 }
