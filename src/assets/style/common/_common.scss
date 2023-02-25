@@ -18,6 +18,11 @@ body {
   color: $gray-900;
   background-color: $body-color;
   -webkit-font-smoothing: antialiased;
+
+  &.o-hidden {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 * {

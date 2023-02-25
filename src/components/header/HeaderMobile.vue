@@ -81,6 +81,12 @@ export default {
   methods: {
     onOpenMenu() {
       this.isOpenMenu = !this.isOpenMenu
+
+      if(this.isOpenMenu) {
+        document.body.classList.add('o-hidden')
+      } else {
+        document.body.classList.remove('o-hidden')
+      }
     }
   }
 }

@@ -106,7 +106,7 @@ export default {
     },
     onMouseLeaveLink(val) {
       console.log('VAL leave', val)
-        this.isOpenDropdown = false
+      this.isOpenDropdown = false
     },
   }
 
@@ -115,7 +115,8 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
   background: $white;
   z-index: 3;
 
@@ -168,6 +169,10 @@ export default {
 
     &._height-dropdown {
       height: 487px;
+
+      body {
+        overflow-y: hidden;
+      }
     }
   }
 
