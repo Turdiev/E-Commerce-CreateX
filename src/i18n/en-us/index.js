@@ -263,6 +263,13 @@ export default {
       name: 'Explore top sales',
       path: '/'
     }
+  },
+  saleUp: {
+    title: 'Sale up to 70%',
+    button: {
+      name: 'See all sale products',
+      path: '/'
+    }
   }
 }
   

@@ -225,6 +225,106 @@ const state = {
             },
 
         ]
+    ],
+    saleUp: [
+        [
+            {
+                image: 'no-picture.png',
+                name: 'Shirt with insertion lace trims',
+                price: '$89.50',
+                old_price: '$179.00',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-50%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+            {
+                image: 'no-picture.png',
+                name: 'Chrono watch with blue leather belt',
+                price: '$40.00',
+                old_price: '$80.00',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-50%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+            {
+                image: 'no-picture.png',
+                name: 'Green baby romper',
+                price: '$119.16',
+                old_price: '$148.95',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-20%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+
+        ],
+        [
+            {
+                image: 'no-picture.png',
+                name: 'Green baby romper',
+                price: '$119.16',
+                old_price: '$148.95',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-20%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+            {
+                image: 'no-picture.png',
+                name: 'Chrono watch with blue leather belt',
+                price: '$40.00',
+                old_price: '$80.00',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-50%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+            {
+                image: 'no-picture.png',
+                name: 'Shirt with insertion lace trims',
+                price: '$89.50',
+                old_price: '$179.00',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-50%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+
+        ],
+        [
+            {
+                image: 'no-picture.png',
+                name: 'Shirt with insertion lace trims',
+                price: '$89.50',
+                old_price: '$179.00',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-50%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+            {
+                image: 'no-picture.png',
+                name: 'Chrono watch with blue leather belt',
+                price: '$40.00',
+                old_price: '$80.00',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-50%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+            {
+                image: 'no-picture.png',
+                name: 'Green baby romper',
+                price: '$119.16',
+                old_price: '$148.95',
+                rating: [1, 2, 3, 4, 5],
+                sale: '-20%',
+                sizes: ['XS', 'S', 'M', 'L'],
+                colors: ['#C0DDED', '#874E19', '#000000']
+            },
+        ]
     ]
 }
 
