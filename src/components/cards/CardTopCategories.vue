@@ -18,9 +18,18 @@ export default {
   name: 'CardTopCategories',
 
   props: {
-    image: String,
-    label: String,
-    path: String
+    image: {
+      type: String,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    path: {
+      type: String,
+      default: ''
+    }
   },
 
   computed: {

@@ -22,8 +22,8 @@
             >
               <span class="dropdown__categories-title">{{ category.title }}</span>
               <li
-                v-for="(link, index) in category.list"
-                :key="`${link.linkName}_${index}`"
+                v-for="(link, idx) in category.list"
+                :key="`${link.linkName}_${idx}`"
                 class="dropdown__categories-link"
               >
                 <router-link :to="link.path">
@@ -80,7 +80,7 @@ export default {
   &__categories {
     display: flex;
     justify-content: flex-start;
-    align-items: start;
+    align-items: flex-start;
     width: 100%;
     gap: 15px;
 
@@ -104,7 +104,7 @@ export default {
     &-items {
       display: flex;
       justify-content: space-between;
-      align-items: start;
+      align-items: flex-start;
       width: 71.5%;
 
       & ul {

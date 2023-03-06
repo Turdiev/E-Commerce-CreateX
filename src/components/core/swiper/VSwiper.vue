@@ -2,49 +2,57 @@
   <div
     ref="swiper"
     class="swiper"
+    :class="{'_container': paginationType === 'dashed'}"
   >
     <div class="swiper-wrapper">
       <slot name="swiperSlide" />
     </div>
 
-    <!--    <div-->
-    <!--      v-show="isPagination"-->
-    <!--      ref="pagination"-->
-    <!--      class="swiper-pagination"-->
-    <!--    />-->
-    <div class="container">
-      <div class="pagination">
-        <VPagination
-          v-show="isPagination"
-          ref="pagination"
-        />
-      </div>
-    </div>
     <div
-      v-show="!isBtnArrow"
+      v-show="!isBtnArrow && isControls"
       ref="prev"
       class="swiper-button-prev"
     />
     <div
-      v-show="!isBtnArrow"
+      v-show="!isBtnArrow && isControls"
       ref="next"
       class="swiper-button-next"
     />
 
     <UiButtonArrow
-      v-if="isBtnArrow"
+      v-if="isBtnArrow && isControls"
       ref="prevArr"
       :reverse="true"
-      class="swiper-button-prev button-arrow"
+      class="swiper-button-prev swiper-button-arrow"
     />
     <UiButtonArrow
-      v-if="isBtnArrow"
+      v-if="isBtnArrow && isControls"
       ref="nextArr"
-      class="swiper-button-next button-arrow"
+      class="swiper-button-next swiper-button-arrow"
     />
 
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar" />
+    <template
+      v-if="isPagination && paginationType === 'default'"
+    >
+      <div class="container">
+        <div class="pagination _default">
+          <VPagination
+            ref="pagination"
+            :type="paginationType"
+          />
+        </div>
+      </div>
+    </template>
+    <template
+      v-else-if="isPagination && paginationType === 'dashed'"
+    >
+      <div class="pagination _dashed">
+        <VPagination
+          ref="pagination"
+          :type="paginationType"
+        />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -70,9 +78,21 @@ export default {
       type: Boolean,
       default: true
     },
+    paginationType: {
+      type: String,
+      default: 'default'
+    },
     isBtnArrow: {
       type: Boolean,
       default: false
+    },
+    isControls: {
+      type: Boolean,
+      default: true
+    },
+    sliderParams: {
+      type: Object,
+      default: () => {}
     }
   },
 
@@ -83,42 +103,53 @@ export default {
   },
 
   computed: {
+    isMobile() {
+      return this.$mq === 'mobile'
+    },
+
     defaultParams() {
       return {
         modules: [Navigation, Pagination],
         loop: true,
 
         pagination: {
-          el: this.$refs.pagination.$el,
-          renderBullet: (index, className) => {
-            return `<div class="${className}">
-                      <span class="swiper-pagination-bullet-num">
-                       0${(index + 1)}
-                      </span>
-                    </div>`;
-          },
+          el: this.$refs.pagination?.$el,
+          dynamicBullets: this.isMobile && this.paginationType === 'dashed',
+          renderBullet: this.paginationType === 'default' ?
+              (index, className) => this.renderPaginationDefault(className, index)
+              : ''
         },
         navigation: {
           nextEl: this.$refs.nextArr ? this.$refs.nextArr.$el : this.$refs.next,
           prevEl: this.$refs.nextArr ? this.$refs.prevArr.$el : this.$refs.prev,
         },
-
-        // And if we need scrollbar
-        // scrollbar: {
-        //   el: '.swiper-scrollbar',
-        // },
       }
     }
   },
 
   mounted() {
+    console.log(this.$refs)
     this.initSlider()
   },
 
   methods: {
     initSlider() {
+      if(this.sliderParams && Object.keys(this.sliderParams)) {
+        this.defaultParams.navigation = {
+          nextEl: this.sliderParams.navigation.refs.nextArr.$el,
+          prevEl: this.sliderParams.navigation.refs.prevArr.$el,
+        }
+      }
       this.swiper = new Swiper(this.$refs.swiper, this.defaultParams)
     },
+
+    renderPaginationDefault(className, index) {
+      return `<div class="${className}">
+                <span class="swiper-pagination-bullet-num">
+                 0${(index + 1)}
+                </span>
+              </div>`;
+    }
   }
 }
 </script>
@@ -127,6 +158,10 @@ export default {
 .swiper {
   width: 100%;
   height: 100%;
+
+  &._container {
+    padding-bottom: 30px;
+  }
 }
 
 .swiper-slide {
@@ -161,8 +196,9 @@ export default {
   right: 0;
 }
 
-.button-arrow {
+.swiper-button-arrow {
   top: 50%;
+  margin: 0 32px;
 
   &:after {
     content: '';
@@ -171,10 +207,22 @@ export default {
 
 .pagination {
   position: relative;
-  bottom: 185px;
 
-  @include respond-to(mobile) {
-    bottom: 20px;
+  &._default {
+    bottom: 185px;
+
+    @include respond-to(mobile) {
+      bottom: 20px;
+    }
   }
+
+  &._dashed {
+    bottom: -40px;
+
+    @include respond-to(mobile) {
+      bottom: -30px;
+    }
+  }
+
 }
 </style>

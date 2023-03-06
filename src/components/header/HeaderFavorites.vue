@@ -45,9 +45,10 @@ export default {
   align-items: center;
 
   &__icon {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 18px;
     margin-right: 6px;
+    cursor: pointer;
   }
 
   &__counter {

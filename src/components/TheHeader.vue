@@ -43,8 +43,7 @@
         name="fade"
         mode="out-in"
       >
-        <MenuDropdown
-        />
+        <MenuDropdown />
       </transition>
     </div>
     <transition name="fade">
@@ -118,7 +117,7 @@ export default {
   position: sticky;
   top: 0;
   background: $white;
-  z-index: 3;
+  z-index: 10;
 
   &__wrapper {
     display: flex;

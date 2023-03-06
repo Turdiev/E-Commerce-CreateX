@@ -1,19 +1,37 @@
 <template>
   <div
-    class="pagination-bullets swiper-pagination"
+    v-if="type === 'default'"
+    class="pagination-default swiper-pagination"
+  />
+  <div
+    v-else-if="type === 'dashed'"
+    class="pagination-dashed swiper-pagination"
   />
 </template>
 
 <script>
 export default {
-  name: 'VPagination'
+  name: 'VPagination',
+
+  props: {
+    type: {
+      type: String,
+      default: 'default',
+      validator: v => {
+        return [
+          'default',
+          'dashed',
+        ].includes(v);
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.pagination-bullets {
+.pagination-default {
   display: inline-flex;
-  align-items: end;
+  align-items: flex-end;
   min-height: 54px;
 
   .swiper-pagination-bullet {
@@ -45,6 +63,30 @@ export default {
     font-size: 28px;
     line-height: 150%;
     color: $gray-800;
+  }
+}
+
+.pagination-dashed {
+  .swiper-pagination-bullet {
+    position: relative;
+    width: 30px;
+    height: 3px;
+    background-color: $gray-500;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $gray-900;
+    }
+
+    &:after {
+      content: none;
+    }
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
   }
 }
 </style>

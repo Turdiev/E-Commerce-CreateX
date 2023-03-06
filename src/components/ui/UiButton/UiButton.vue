@@ -1,10 +1,10 @@
 <template>
   <div
     class="button"
-    :class="{
+    :class="[{
       '_outline': outline,
-      '_solid': solid
-    }"
+      '_solid': solid,
+    }, size]"
     @click="$emit('click')"
   >
     <slot />
@@ -17,7 +17,18 @@ export default {
 
   props: {
     outline: Boolean,
-    solid: Boolean
+    solid: Boolean,
+    size: {
+      type: String,
+      default: 'regular',
+      validator: v => {
+        return [
+          'large',
+          'regular',
+          'small'
+        ].includes(v);
+      }
+    }
   }
 }
 </script>
@@ -54,8 +65,25 @@ export default {
 
     &:hover {
       color: $white;
-      background: #1a6b6c;
+      background: #145C5D;
     }
+  }
+
+  &.large {
+    height: 52px;
+  }
+
+  &.regular {
+    height: 44px;
+    font-size: 14px;
+    line-height: 44px;
+  }
+
+  &.small {
+    height: 36px;
+
+    font-size: 12px;
+    line-height: 36px;
   }
 }
 </style>

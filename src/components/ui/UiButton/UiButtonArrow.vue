@@ -4,11 +4,14 @@
     :class="{
       '_transparent': transparent
     }"
+    @mouseenter="color = true"
+    @mouseleave="color = false"
     @click="$emit('click')"
   >
     <IconArrow
       class="button-arrow__icon"
       :class="{'_reverse': reverse}"
+      :color="color ? 'white' : 'black'"
     />
   </div>
 </template>
@@ -21,6 +24,12 @@ export default {
   props: {
     reverse: Boolean,
     transparent: Boolean
+  },
+
+  data() {
+    return {
+      color: false
+    }
   }
 }
 </script>
@@ -35,7 +44,6 @@ export default {
   background: $white;
   border-radius: 50%;
   transition: $defaultTransition;
-  margin: 0 32px;
   cursor: pointer;
 
   &:hover {

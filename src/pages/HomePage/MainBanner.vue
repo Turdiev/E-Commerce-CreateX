@@ -2,6 +2,8 @@
   <div class="banner">
     <VSwiper
       :is-btn-arrow="true"
+      :is-controls="!isMobile"
+      pagination-type="default"
     >
       <template #swiperSlide>
         <template
@@ -26,6 +28,7 @@
                     :key="item.labelLink"
                     :solid="item.solid"
                     :outline="item.outline"
+                    size="large"
                     class="banner__actions-button"
                     :class="{'_small': item.outline}"
                   >

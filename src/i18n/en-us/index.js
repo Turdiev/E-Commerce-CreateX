@@ -248,6 +248,21 @@ export default {
       label: 'Kids’',
       path: '/'
     }
-  ]
+  ],
+  newArrivals: {
+    title: 'New arrivals',
+    description: 'Check out our latest arrivals for the upcoming season',
+    descriptionLink: {
+      name: 'See the collection here',
+      path: '/'
+    }
+  },
+  trendingNow: {
+    title: 'Trending now',
+    button: {
+      name: 'Explore top sales',
+      path: '/'
+    }
+  }
 }
   
