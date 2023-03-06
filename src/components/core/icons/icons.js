@@ -7,6 +7,9 @@ import IconCart from "@/components/core/icons/IconCart.vue";
 import IconListBullet from "@/components/core/icons/IconListBullet.vue";
 import IconArrow from "@/components/core/icons/IconArrow.vue";
 import IconStarRating from "@/components/core/icons/IconStarRating.vue";
+import IconSuccess from "@/components/core/icons/IconSuccess.vue";
+import IconError from "@/components/core/icons/IconError.vue";
+import IconCheckbox from "@/components/core/icons/IconCheckbox.vue";
 
 export const components = [
     IconFlagUsa,
@@ -17,7 +20,10 @@ export const components = [
     IconCart,
     IconListBullet,
     IconArrow,
-    IconStarRating
+    IconStarRating,
+    IconSuccess,
+    IconError,
+    IconCheckbox
 ]
 
 

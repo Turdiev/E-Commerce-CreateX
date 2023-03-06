@@ -16,6 +16,7 @@
           <UiInput
             v-model="searchValue"
             type="text"
+            size="regular"
             :placeholder="i18nHeader.inputSearch.placeholder"
             class="header__search-input"
           >
@@ -137,7 +138,6 @@ export default {
 
   &__search {
     width: 380px;
-    height: 44px;
 
     &-input {}
   }

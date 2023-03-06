@@ -270,6 +270,27 @@ export default {
       name: 'See all sale products',
       path: '/'
     }
+  },
+  formSubscribe: {
+    title: 'Subscribe for updates',
+    description: 'Subscribe for exclusive early sale access and new arrivals.',
+    params: [
+      {
+        name: 'Women'
+      },
+      {
+        name: 'Men'
+      },
+      {
+        name: 'Girls'
+      },
+      {
+        name: 'Boys'
+      }
+    ],
+    placeholder: 'Your working email',
+    button: 'Subscribe',
+    agree: 'I agree to receive communications from Createx Store.'
   }
 }
   
