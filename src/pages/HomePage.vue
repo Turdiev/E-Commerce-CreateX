@@ -11,7 +11,6 @@
       type-product="saleUp"
       :products="getProductsSaleUp"
     />
-    <FormSubscribe />
   </div>
 </template>
 
@@ -20,12 +19,10 @@ import MainBanner from "@/pages/HomePage/MainBanner.vue";
 import TopCategories from "@/pages/HomePage/TopCategories.vue";
 import NewArrivals from "@/pages/HomePage/NewArrivals.vue";
 import ProductCarousel from "@/pages/HomePage/ProductCarousel.vue";
-import FormSubscribe from "@/components/core/forms/FormSubscribe.vue";
 
 export default {
   name: 'HomePage',
   components: {
-    FormSubscribe,
     ProductCarousel,
     MainBanner,
     TopCategories,

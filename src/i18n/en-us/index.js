@@ -291,6 +291,87 @@ export default {
     placeholder: 'Your working email',
     button: 'Subscribe',
     agree: 'I agree to receive communications from Createx Store.'
+  },
+  footer: {
+    menu: [
+      {
+        title: 'HELP',
+        nav: [
+          {
+            name: 'Delivery & returns',
+            path: '/'
+          },
+          {
+            name: 'FAQ',
+            path: '/'
+          },
+          {
+            name: 'Track order',
+            path: '/'
+          },
+          {
+            name: 'Contacts',
+            path: '/'
+          },
+          {
+            name: 'Blog',
+            path: '/'
+          }
+        ]
+      },
+      {
+        title: 'Shop',
+        nav: [
+          {
+            name: 'New arrivals',
+            path: '/'
+          },
+          {
+            name: 'Trending now',
+            path: '/'
+          },
+          {
+            name: 'Sales',
+            path: '/'
+          },
+          {
+            name: 'Brands',
+            path: '/'
+          }
+        ]
+      }
+    ],
+    copyright: '© All rights reserved.',
+    scroll: 'Go to top',
+    getInTouch: {
+      title: 'Get in touch',
+      call: 'Call: ',
+      callValue: '(405) 555-0128',
+      email: 'Email: ',
+      emailValue: 'turdiev.dev@gmail.com',
+      socials: [
+        {
+          name: 'facebook',
+          path: '/'
+        },
+        {
+          name: 'instagram',
+          path: '/'
+        },
+        {
+          name: 'twitter',
+          path: '/'
+        },
+        {
+          name: 'youtube',
+          path: '/'
+        },
+        {
+          name: 'pinterest',
+          path: '/'
+        }
+      ]
+    }
   }
 }
   
