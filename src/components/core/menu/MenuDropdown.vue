@@ -20,7 +20,9 @@
               v-for="(category, index) in i18nDropdown.categories"
               :key="`${category.title}_${index}`"
             >
-              <span class="dropdown__categories-title">{{ category.title }}</span>
+              <li class="_title">
+                {{ category.title }}
+              </li>
               <li
                 v-for="(link, idx) in category.list"
                 :key="`${link.linkName}_${idx}`"
@@ -67,8 +69,8 @@ export default {
   height: 100%;
   background: $white;
   border: 1px solid #E5E8ED;
-  box-shadow: 0px 60px 80px -20px rgba(30, 33, 44, 0.16), 0px 26px 24px -10px rgba(30, 33, 44, 0.1), 0px 12px 10px -6px rgba(30, 33, 44, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
-  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0 60px 80px -20px rgba(30, 33, 44, 0.16), 0 26px 24px -10px rgba(30, 33, 44, 0.1), 0 12px 10px -6px rgba(30, 33, 44, 0.08), 0 4px 4px -4px rgba(30, 33, 44, 0.05);
+  border-radius: 0 0 4px 4px;
 
   &__wrapper {
     display: flex;
@@ -119,15 +121,15 @@ export default {
           line-height: 150%;
           color: $gray-800;
         }
-      }
-    }
 
-    &-title {
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 150%;
-      letter-spacing: 1px;
-      color: $gray-900;
+        & ._title {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 150%;
+          letter-spacing: 1px;
+          color: $gray-900;
+        }
+      }
     }
 
     &-link {

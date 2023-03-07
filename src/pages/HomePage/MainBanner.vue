@@ -84,7 +84,7 @@ export default {
 <style lang="scss" scoped>
 .banner {
   width: 100%;
-  height: calc(100vh - 164px);
+  height: calc(100vh - 121px);
 
   &__wrapper {
     display: flex;

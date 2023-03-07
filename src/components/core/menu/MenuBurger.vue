@@ -66,7 +66,7 @@ export default {
 }
 
 ._opened {
-  top: -50px;
+  top: 0;
 
   & span {
 

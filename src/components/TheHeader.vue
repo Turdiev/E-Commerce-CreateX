@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-    <PreHeader />
     <div class="container">
       <div
         v-if="!isBreakepoints"
@@ -53,16 +52,13 @@
         class="header__overlay"
       />
     </transition>
-    <HeaderSpecialOffers />
   </header>
 </template>
 
 <script>
-import PreHeader from "@/components/header/PreHeader.vue";
 import TheLogo from "@/components/TheLogo.vue";
 import TheMenu from "@/components/core/menu/TheMenu.vue";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
-import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import HeaderFavorites from "@/components/header/HeaderFavorites.vue";
 import HeaderCart from "@/components/header/HeaderCart.vue";
@@ -75,11 +71,9 @@ export default {
     HeaderCart,
     HeaderFavorites,
     HeaderMobile,
-    HeaderSpecialOffers,
     UiInput,
     TheMenu,
     TheLogo,
-    PreHeader
   },
 
   data() {
@@ -118,6 +112,7 @@ export default {
   position: sticky;
   top: 0;
   background: $white;
+  border-bottom: 1px solid $primary;
   z-index: 10;
 
   &__wrapper {
@@ -158,7 +153,7 @@ export default {
 
   &__hidden-dropdown {
     position: absolute;
-    top: 120px;
+    top: 80px;
     left: 0;
     height: 0;
     width: 100%;
