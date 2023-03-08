@@ -33,7 +33,10 @@
             <span>{{ i18nPreHeader.currency }}</span>
             <IconDownArrow class="icon-down-arrow" />
           </div>
-          <div class="pre-header__account">
+          <div
+            class="pre-header__account"
+            @click="onOpenModalAuth()"
+          >
             <IconProfile class="icon-profile" />
             <span>{{ i18nPreHeader.logIn }}</span>
           </div>
@@ -53,6 +56,16 @@ export default {
     },
     isMobile() {
       return this.$mq === 'mobile'
+    }
+  },
+
+  methods: {
+    onOpenModalAuth() {
+      this.$store.dispatch('auth/changeStateModal', {
+        form: 'signIn',
+        value: true
+      })
+      document.body.classList.add('o-hidden')
     }
   }
 }
@@ -140,6 +153,7 @@ export default {
     &__account {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       & span {
         @include text-style();

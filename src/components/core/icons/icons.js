@@ -10,6 +10,8 @@ import IconStarRating from "@/components/core/icons/IconStarRating.vue";
 import IconSuccess from "@/components/core/icons/IconSuccess.vue";
 import IconError from "@/components/core/icons/IconError.vue";
 import IconCheckbox from "@/components/core/icons/IconCheckbox.vue";
+import IconEye from "@/components/core/icons/IconEye.vue";
+import IconEyeClosed from "@/components/core/icons/IconEyeClosed.vue";
 
 export const components = [
     IconFlagUsa,
@@ -23,7 +25,9 @@ export const components = [
     IconStarRating,
     IconSuccess,
     IconError,
-    IconCheckbox
+    IconCheckbox,
+    IconEye,
+    IconEyeClosed
 ]
 
 

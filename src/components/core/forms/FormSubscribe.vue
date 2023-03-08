@@ -22,6 +22,7 @@
           </div>
           <div class="form__subscribe">
             <UiInput
+              id="subscribe"
               label="Email"
               size="large"
               :placeholder="i18nForm.placeholder"

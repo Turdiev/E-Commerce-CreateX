@@ -12,7 +12,7 @@
     <input
       :id="id"
       :value="value"
-      :type="type"
+      :type="type !== 'password' ? type : changeTypePassword"
       :placeholder="placeholder"
       class="UiInput__element"
       :class="{
@@ -38,6 +38,18 @@
       <slot />
       <IconSuccess v-if="success" />
       <IconError v-if="error" />
+      <template
+        v-if="type === 'password'"
+      >
+        <IconEye
+          v-if="isPasswordShow"
+          @click="onPasswordShow"
+        />
+        <IconEyeClosed
+          v-if="!isPasswordShow"
+          @click="onPasswordShow"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -88,7 +100,14 @@ export default {
     return {
       success: false,
       error: false,
+      isPasswordShow: false,
       message: ''
+    }
+  },
+
+  computed: {
+    changeTypePassword() {
+      return this.isPasswordShow ? 'text' : 'password'
     }
   },
 
@@ -100,6 +119,9 @@ export default {
     onChange(e) {
       this.$emit('change', e);
     },
+    onPasswordShow() {
+      this.isPasswordShow = !this.isPasswordShow
+    }
   }
 }
 </script>

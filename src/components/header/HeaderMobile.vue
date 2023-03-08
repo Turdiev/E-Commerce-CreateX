@@ -46,8 +46,8 @@
 <script>
 import TheLogo from "@/components/TheLogo.vue";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
-import MenuBurger from "@/components/core/menu/MenuBurger.vue";
-import MenuMobile from "@/components/core/menu/MenuMobile.vue";
+import MenuBurger from "@/components/menu/MenuBurger.vue";
+import MenuMobile from "@/components/menu/MenuMobile.vue";
 
 export default {
   name: 'HeaderMobile',

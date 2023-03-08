@@ -1,3 +1,4 @@
+import auth from "@/i18n/en-us/auth";
 export default {
   header: {
     menu: [
@@ -372,6 +373,8 @@ export default {
         }
       ]
     }
-  }
+  },
+
+  auth
 }
   

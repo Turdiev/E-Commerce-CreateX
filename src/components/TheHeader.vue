@@ -13,6 +13,7 @@
         />
         <div class="header__search">
           <UiInput
+            id="search"
             v-model="searchValue"
             type="text"
             size="regular"
@@ -57,12 +58,12 @@
 
 <script>
 import TheLogo from "@/components/TheLogo.vue";
-import TheMenu from "@/components/core/menu/TheMenu.vue";
+import TheMenu from "@/components/menu/TheMenu.vue";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import HeaderFavorites from "@/components/header/HeaderFavorites.vue";
 import HeaderCart from "@/components/header/HeaderCart.vue";
-import MenuDropdown from "@/components/core/menu/MenuDropdown.vue";
+import MenuDropdown from "@/components/menu/MenuDropdown.vue";
 export default {
   name: 'TheHeader',
 
