@@ -1,0 +1,94 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: CoreQuery
+    mutation: CoreMutation
+}
+
+"The `@defer` directive may be provided for fragment spreads and inline fragments to inform the executor to delay the execution of the current fragment to indicate deprioritization of the current fragment. A query with `@defer` directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred is delivered in a subsequent response. `@include` and `@skip` take precedence over `@defer`."
+directive @defer(
+    "Deferred when true."
+    if: Boolean,
+    "If this argument label has a value other than null, it will be passed on to the result of this defer directive. This label is intended to give client applications a way to identify to which fragment a deferred result belongs to."
+    label: String
+) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+"The `@stream` directive may be provided for a field of `List` type so that the backend can leverage technology such as asynchronous iterators to provide a partial list in the initial response, and additional list items in subsequent responses. `@include` and `@skip` take precedence over `@stream`."
+directive @stream(
+    "Streamed when true."
+    if: Boolean,
+    "The initial elements that shall be send down to the consumer."
+    initialCount: Int! = 0,
+    "If this argument label has a value other than null, it will be passed on to the result of this stream directive. This label is intended to give client applications a way to identify to which fragment a streamed result belongs to."
+    label: String
+) on FIELD
+
+directive @authorize(
+    "Defines when when the resolver shall be executed.By default the resolver is executed after the policy has determined that the current user is allowed to access the field."
+    apply: ApplyPolicy! = BEFORE_RESOLVER,
+    "The name of the authorization policy that determines access to the annotated resource."
+    policy: String,
+    "Roles that are allowed to access the annotated resource."
+    roles: [String!]
+) on SCHEMA | OBJECT | FIELD_DEFINITION
+
+type CoreMutation {
+    newToken(request: NewTokenRequestInput!): TokenResponse!
+    register(request: RegisterUserRequestInput!): OkResponse!
+}
+
+type CoreQuery {
+    signIn(request: SignInRequestInput!): TokenResponse!
+    userByEmail(request: FindUserByEmailRequestInput!): UserResponse!
+}
+
+type OkResponse {
+    ok: String
+}
+
+type TokenResponse {
+    accessToken: String
+    refreshToken: String
+}
+
+type UserResponse {
+    email: String
+    firstName: String
+    lastName: String
+    middleName: String
+    phoneNumber: String
+    userId: Long!
+    userName: String
+}
+
+enum ApplyPolicy {
+    AFTER_RESOLVER
+    BEFORE_RESOLVER
+}
+
+"The `Long` scalar type represents non-fractional signed whole 64-bit numeric values. Long can represent values between -(2^63) and 2^63 - 1."
+scalar Long
+
+input FindUserByEmailRequestInput {
+    email: String!
+}
+
+input NewTokenRequestInput {
+    accessToken: String!
+    refreshToken: String!
+}
+
+input RegisterUserRequestInput {
+    email: String!
+    firstName: String!
+    lastName: String!
+    middleName: String
+    password: String!
+    phoneNumber: String
+    userName: String!
+}
+
+input SignInRequestInput {
+    password: String!
+    userName: String!
+}

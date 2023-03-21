@@ -1,0 +1,6 @@
+query signIn($input: SignInRequestInput!) {
+    signIn(request: $input) {
+        accessToken
+        refreshToken
+    }
+}
