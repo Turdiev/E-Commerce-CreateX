@@ -66,7 +66,6 @@ export default {
 
   computed: {
     i18nNewArrivals() {
-      console.log(this.getProductsListMob)
       return this.$t('newArrivals')
     },
 

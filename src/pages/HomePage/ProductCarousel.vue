@@ -68,11 +68,10 @@
       <div class="product-carousel__button">
         <UiButton
           :outline="true"
+          :label="i18nProduct.button.name"
           size="large"
           class="_size"
-        >
-          {{ i18nProduct.button.name }}
-        </UiButton>
+        />
       </div>
     </div>
   </div>

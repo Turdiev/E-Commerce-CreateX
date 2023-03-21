@@ -30,10 +30,9 @@
                     :outline="item.outline"
                     size="large"
                     class="banner__actions-button"
+                    :label="item.labelLink"
                     :class="{'_small': item.outline}"
-                  >
-                    {{ item.labelLink }}
-                  </UiButton>
+                  />
                 </div>
               </div>
             </div>
