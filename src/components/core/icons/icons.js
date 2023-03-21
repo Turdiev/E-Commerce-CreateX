@@ -12,6 +12,8 @@ import IconError from "@/components/core/icons/IconError.vue";
 import IconCheckbox from "@/components/core/icons/IconCheckbox.vue";
 import IconEye from "@/components/core/icons/IconEye.vue";
 import IconEyeClosed from "@/components/core/icons/IconEyeClosed.vue";
+import IconBag from "@/components/core/icons/IconBag.vue";
+import IconLogOut from "@/components/core/icons/IconLogOut.vue";
 
 export const components = [
     IconFlagUsa,
@@ -27,7 +29,9 @@ export const components = [
     IconError,
     IconCheckbox,
     IconEye,
-    IconEyeClosed
+    IconEyeClosed,
+    IconBag,
+    IconLogOut
 ]
 
 
