@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <PreHeader v-if="!isMobile" />
@@ -56,7 +57,6 @@ export default {
     },
 
     isOpenModal() {
-      console.log('ssds')
       return this.$store.state.auth.isOpenModal
     },
   },

@@ -35,10 +35,10 @@
           </div>
           <div
             class="pre-header__account"
-            @click="onOpenModalAuth()"
+            @click="!getAccount ? onOpenModalAuth() : goToProfilePage()"
           >
             <IconProfile class="icon-profile" />
-            <span>{{ i18nPreHeader.logIn }}</span>
+            <span>{{ getAccount || i18nPreHeader.logIn }}</span>
           </div>
         </div>
       </div>
@@ -56,6 +56,9 @@ export default {
     },
     isMobile() {
       return this.$mq === 'mobile'
+    },
+    getAccount() {
+      return this.$store.getters["auth/user"]
     }
   },
 
@@ -66,6 +69,10 @@ export default {
         value: true
       })
       document.body.classList.add('o-hidden')
+    },
+
+    goToProfilePage() {
+      this.$router.push('/account/my-profile')
     }
   }
 }
@@ -153,6 +160,7 @@ export default {
     &__account {
       display: flex;
       align-items: center;
+      color: $white;
       cursor: pointer;
 
       & span {
@@ -184,7 +192,7 @@ export default {
     height: 16px;
     opacity: 0.6;
     margin-right: 8px;
-    fill: currentColor;
+    fill: $white;
   }
 
   .icon-down-arrow {

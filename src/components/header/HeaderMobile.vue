@@ -29,7 +29,6 @@
       @click="onOpenMenu"
     />
     <div
-      v-if="isOpenMenu"
       class="header-mobile__menu"
       :class="{'_show-menu': isOpenMenu}"
     >
@@ -37,7 +36,10 @@
         name="fade"
         mode="out-in"
       >
-        <MenuMobile />
+        <MenuMobile
+          v-if="isOpenMenu"
+          key="mobileMenu"
+        />
       </transition>
     </div>
   </div>
@@ -146,12 +148,12 @@ export default {
     height: 0;
     background: $white;
     overflow: hidden;
-    transition: height 1s ease-out;
+    transition: height .3s ease-out;
     z-index: 2;
 
     &._show-menu {
       height: 100vh;
-      transition: height 1s ease-out;
+      transition: height .3s ease-out;
     }
   }
 }

@@ -3,7 +3,7 @@
     class="favorites"
   >
     <div class="favorites__icon">
-      <IconFavorites />
+      <IconFavorites :is-hovered="true" />
     </div>
     <div
       v-if="!mobile"
