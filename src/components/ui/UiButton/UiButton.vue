@@ -7,7 +7,17 @@
     }, size]"
     @click="$emit('click')"
   >
-    <slot />
+    <div
+      v-if="isIcon"
+      class="button__icon"
+    >
+      <slot name="icon"/>
+    </div>
+    <div
+      class="button__label"
+    >
+      {{ label }}
+    </div>
   </div>
 </template>
 
@@ -16,8 +26,14 @@ export default {
   name: 'UiButton',
 
   props: {
+    label: {
+      type: String,
+      required: true,
+      default: ''
+    },
     outline: Boolean,
     solid: Boolean,
+    isIcon: Boolean,
     size: {
       type: String,
       default: 'regular',
@@ -41,11 +57,6 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 52px;
-  letter-spacing: 0.5px;
   color: $primary;
   cursor: pointer;
 
@@ -84,6 +95,22 @@ export default {
 
     font-size: 12px;
     line-height: 36px;
+  }
+
+  &__icon {
+    height: 78%;
+    margin-right: 8px;
+    & svg {
+      display: inline-block;
+      height: 18px;
+    }
+  }
+
+  &__label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
   }
 }
 </style>
