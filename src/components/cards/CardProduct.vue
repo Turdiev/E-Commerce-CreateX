@@ -93,9 +93,13 @@
             <UiButton
               class="card-product__button"
               :solid="true"
+              :is-icon="true"
               size="small"
+              label="Add to cart"
             >
-              Add to cart
+              <template #icon>
+                <IconCart />
+              </template>
             </UiButton>
           </div>
         </transition>
