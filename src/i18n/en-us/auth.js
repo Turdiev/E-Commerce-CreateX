@@ -2,9 +2,9 @@ export default {
     login: {
         title: 'Sign in',
         description: 'Sign in to your account using email and password provided during registration.',
-        emailLabel: 'Email',
+        userNameLabel: 'Login',
         passwordLabel: 'Password',
-        emailPlaceholder: 'Your working email',
+        userNamePlaceholder: 'Your login',
         passwordPlaceholder: 'Your password',
         keepMe: 'Keep me signed in',
         forgot: 'Forgot password?',

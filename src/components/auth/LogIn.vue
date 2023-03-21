@@ -17,21 +17,20 @@
     <template #body>
       <div class="login__body">
         <form
-          action=""
           class="form"
         >
           <UiInput
             id="email"
-            v-model="email"
+            v-model="user.userName"
             type="email"
-            :placeholder="i18nLogin.emailPlaceholder"
-            :label="i18nLogin.emailLabel"
+            :placeholder="i18nLogin.userNamePlaceholder"
+            :label="i18nLogin.userNameLabel"
             size="regular"
             class="form__input"
           />
           <UiInput
             id="password"
-            v-model="password"
+            v-model="user.password"
             type="password"
             :placeholder="i18nLogin.passwordPlaceholder"
             :label="i18nLogin.passwordLabel"
@@ -50,11 +49,11 @@
           </div>
           <UiButton
             :solid="true"
+            :label="i18nLogin.button"
             size="regular"
             class="form__button"
-          >
-            {{ i18nLogin.button }}
-          </UiButton>
+            @click="onSubmit"
+          />
           <div class="form__dontAcc">
             <span>{{ i18nLogin.noAcc }}</span>
             <span
@@ -87,6 +86,18 @@
         </div>
       </div>
     </template>
+    <template #alert>
+      <transition
+        name="fade"
+      >
+        <VAlert
+          v-if="isShowAlert"
+          :answer="operationStatus"
+          :message="alertMessage"
+          class="login__alert"
+        />
+      </transition>
+    </template>
   </VModal>
 </template>
 
@@ -95,10 +106,12 @@ import VModal from "@/components/core/modal/VModal.vue";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import UiButtonCheckbox from "@/components/ui/UiButton/UiButtonCheckbox.vue";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
+import VAlert from "@/components/core/modal/VAlert.vue";
 
 export default {
   name: 'LogIn',
   components: {
+    VAlert,
     UiButton,
     UiButtonCheckbox,
     UiInput,
@@ -107,10 +120,15 @@ export default {
 
   data() {
     return {
-      email: '',
-      password: null,
+      user: {
+        userName: 'Admin',
+        password: 'simpledimple4',
+      },
       checkboxKeepMe: false,
-      isPasswordShow: false
+      isPasswordShow: false,
+      isShowAlert: false,
+      operationStatus: '',
+      alertMessage: ''
     }
   },
 
@@ -124,6 +142,28 @@ export default {
   },
 
   methods: {
+    onSubmit() {
+      this.$store.dispatch('auth/loginUser', this.user)
+          .then(res => {
+            console.log('RES', res)
+            if (res.token) {
+              this.operationStatus = 'success'
+              this.alertMessage = res.message
+            }
+            else {
+              this.operationStatus = 'error'
+              this.alertMessage = res.message
+            }
+            this.isShowAlert = true
+          })
+      setTimeout(() => {
+        this.isShowAlert = false
+        this.$store.dispatch('auth/changeStateModal', {
+          form: 'signIn',
+          value: false
+        })
+      }, 2000)
+    },
     onOpenSignUpForm() {
       this.$store.dispatch('auth/changeStateModal', {
         form: 'signIn',
@@ -154,6 +194,10 @@ export default {
 
   &__body {
 
+  }
+
+  &__alert {
+    //transform: translateY(-50px);
   }
 
   &__footer {
@@ -296,6 +340,25 @@ export default {
       color: $primary;
       cursor: pointer;
     }
+  }
+}
+
+.fade-enter-active {
+  transition: all 1s linear;
+  animation: fade-in 1s;
+}
+.fade-leave-active {
+  transition: all 1s linear;
+  animation: fade-in 1s reverse;
+}
+@keyframes fade-in {
+  0% {
+    top: -25px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
   }
 }
 </style>

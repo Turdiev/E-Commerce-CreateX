@@ -65,11 +65,10 @@
           </div>
           <UiButton
             :solid="true"
+            :label="i18nLogin.button"
             size="regular"
             class="form__button"
-          >
-            {{ i18nLogin.button }}
-          </UiButton>
+          />
           <div class="form__dontAcc">
             <span>{{ i18nLogin.noAcc }}</span>
             <span

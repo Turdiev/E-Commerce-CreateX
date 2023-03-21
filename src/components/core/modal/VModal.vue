@@ -2,6 +2,9 @@
   <div
     class="VModal"
   >
+    <div class="VModal__alert">
+      <slot name="alert" />
+    </div>
     <div
       class="VModal__overlay"
       @click="onCloseModal"
@@ -78,6 +81,10 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba($gray-900, 0.75);
+  }
+
+  &__alert {
+    position: relative;
   }
 }
 

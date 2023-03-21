@@ -1,4 +1,5 @@
 import auth from "@/i18n/en-us/auth";
+import account from "@/i18n/en-us/account";
 export default {
   header: {
     menu: [
@@ -375,6 +376,7 @@ export default {
     }
   },
 
-  auth
+  auth,
+  account
 }
   
