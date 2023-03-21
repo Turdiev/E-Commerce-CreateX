@@ -34,11 +34,10 @@
             />
             <UiButton
               :solid="true"
+              :label="i18nForm.button"
               size="large"
               class="form__button"
-            >
-              {{ i18nForm.button }}
-            </UiButton>
+            />
           </div>
           <div class="form__agree">
             <UiButtonCheckbox
