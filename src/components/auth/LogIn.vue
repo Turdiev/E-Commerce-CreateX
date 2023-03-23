@@ -107,6 +107,7 @@ import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import UiButtonCheckbox from "@/components/ui/UiButton/UiButtonCheckbox.vue";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import VAlert from "@/components/core/modal/VAlert.vue";
+import mixinModalWindowActions from "@/mixins/mixin-modal-window-actions";
 
 export default {
   name: 'LogIn',
@@ -117,6 +118,8 @@ export default {
     UiInput,
     VModal
   },
+
+  mixins: [ mixinModalWindowActions ],
 
   data() {
     return {
@@ -158,21 +161,12 @@ export default {
           })
       setTimeout(() => {
         this.isShowAlert = false
-        this.$store.dispatch('auth/changeStateModal', {
-          form: 'signIn',
-          value: false
-        })
+        this.onCloseModalWindow('signIn', 'auth/changeStateModal')
       }, 2000)
     },
     onOpenSignUpForm() {
-      this.$store.dispatch('auth/changeStateModal', {
-        form: 'signIn',
-        value: false
-      })
-      this.$store.dispatch('auth/changeStateModal', {
-        form: 'signUp',
-        value: true
-      })
+      this.onCloseModalWindow('signIn', 'auth/changeStateModal')
+      this.onOpenModalWindow('signUp', 'auth/changeStateModal')
     },
     onClickCheckbox() {
       this.checkboxKeepMe = !this.checkboxKeepMe

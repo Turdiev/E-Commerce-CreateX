@@ -13,7 +13,8 @@ const state = {
 }
 
 const getters = {
-    user: () => state.user
+    user: () => state.user,
+    authStatus: () => state.isAuthStatus
 }
 
 const mutations = {
@@ -23,11 +24,11 @@ const mutations = {
 
     USER_LOGIN(state, payload) {
         state.user = payload
-        state.isAuthStatus = true
+        state.isAuthStatus = !!payload
     },
     SET_TOKEN(state, payload) {
-        state.accessToken = payload.accessToken
-        state.refreshToken = payload.refreshToken
+        state.accessToken = payload && payload.accessToken
+        state.refreshToken = payload && payload.refreshToken
     }
 }
 
@@ -61,6 +62,12 @@ const actions = {
             })
 
         return result
+    },
+    logoutUser({commit}) {
+        commit('USER_LOGIN', null)
+        commit('SET_TOKEN', null)
+        localStorage.removeItem('apollo-token')
+        localStorage.removeItem('user')
     }
 }
 

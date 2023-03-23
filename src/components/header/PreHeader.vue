@@ -47,8 +47,12 @@
 </template>
 
 <script>
+import mixinModalWindowActions from "@/mixins/mixin-modal-window-actions";
+
 export default {
   name: 'PreHeader',
+
+  mixins: [ mixinModalWindowActions ],
 
   computed: {
     i18nPreHeader() {
@@ -64,11 +68,7 @@ export default {
 
   methods: {
     onOpenModalAuth() {
-      this.$store.dispatch('auth/changeStateModal', {
-        form: 'signIn',
-        value: true
-      })
-      document.body.classList.add('o-hidden')
+      this.onOpenModalWindow('signIn', 'auth/changeStateModal')
     },
 
     goToProfilePage() {

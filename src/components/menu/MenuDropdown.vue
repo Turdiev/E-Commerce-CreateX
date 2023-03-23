@@ -39,9 +39,8 @@
         <div class="dropdown__banner">
           <UiButton
             :outline="true"
-          >
-            {{ i18nDropdown.banner.button }}
-          </UiButton>
+            :label="i18nDropdown.banner.button"
+          />
         </div>
       </div>
     </div>

@@ -109,6 +109,7 @@ import VModal from "@/components/core/modal/VModal.vue";
 import UiInput from "@/components/ui/UiInput/UiInput.vue";
 import UiButtonCheckbox from "@/components/ui/UiButton/UiButtonCheckbox.vue";
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
+import mixinModalWindowActions from "@/mixins/mixin-modal-window-actions";
 
 export default {
   name: 'SignUp',
@@ -118,6 +119,8 @@ export default {
     UiInput,
     VModal
   },
+
+  mixins: [ mixinModalWindowActions ],
 
   data() {
     return {
@@ -140,14 +143,8 @@ export default {
 
   methods: {
     onOpenSignUpForm() {
-      this.$store.dispatch('auth/changeStateModal', {
-        form: 'signUp',
-        value: false
-      })
-      this.$store.dispatch('auth/changeStateModal', {
-        form: 'signIn',
-        value: true
-      })
+      this.onCloseModalWindow('signUp', 'auth/changeStateModal')
+      this.onOpenModalWindow('signIn', 'auth/changeStateModal')
     },
     onClickCheckbox() {
       this.checkboxRememberMe = !this.checkboxRememberMe
@@ -309,6 +306,7 @@ export default {
 
     & ._another {
       color: $primary;
+      cursor: pointer;
     }
   }
 }

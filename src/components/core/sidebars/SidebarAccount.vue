@@ -9,6 +9,7 @@
         v-for="(item, index) in i18nAccount.nav"
         :key="`${item.path}_${index}`"
         :to="item.path"
+        :class="{'_active-link': currentLink === item.path}"
         class="sidebar-account__link"
       >
         <template
@@ -26,6 +27,7 @@
       </router-link>
       <div
         class="sidebar-account__link"
+        @click="onLogout()"
       >
         <div
           class="sidebar-account__icon"
@@ -51,6 +53,12 @@ export default {
     }
   },
 
+  data() {
+    return {
+      currentLink: window.location.hash.split('/')[2]
+    }
+  },
+
   computed: {
     i18nAccount() {
       return this.$t('account')
@@ -58,6 +66,19 @@ export default {
 
     icons() {
       return components
+    },
+  },
+
+  watch: {
+    '$route'(newValue) {
+      this.currentLink = newValue.path.split('/')[2]
+    }
+  },
+
+  methods: {
+    onLogout() {
+      this.$store.dispatch('auth/logoutUser')
+      this.$router.push('/')
     }
   }
 }
@@ -93,8 +114,21 @@ export default {
     transition: $defaultTransition;
     border-top: 1px solid $gray-300;
     padding: 18px;
+    cursor: pointer;
 
     &:hover {
+      background: $primary;
+
+      & span {
+        color: $white;
+      }
+
+      .sidebar-account__icon {
+        color: $white;
+      }
+    }
+
+    &._active-link {
       background: $primary;
 
       & span {
