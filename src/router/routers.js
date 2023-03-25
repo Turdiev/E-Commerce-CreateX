@@ -11,13 +11,14 @@ export const routes = [
     },
     {
         path: '/account/',
+        name: 'Account',
         components: { LayoutView: () =>  AccountLayout},
         children: [
-            { path: 'my-profile', components: { contentView: () => import('@/pages/AccountPages/AccountProfilePage.vue') } },
-            { path: 'my-orders', components: { contentView: () => import('@/pages/AccountPages/AccountOrdersPage.vue') } },
-            { path: 'my-wishlist', components: { contentView: () => import('@/pages/AccountPages/AccountWishlistPage.vue') } },
-            { path: 'my-recently-viewed', components: { contentView: () => import('@/pages/AccountPages/AccountRecentlyPage.vue') } },
-            { path: 'my-reviews', components: { contentView: () => import('@/pages/AccountPages/AccountReviewsPage.vue') } },
+            { path: 'my-profile', name: 'My profile', components: { contentView: () => import('@/pages/AccountPages/AccountProfilePage.vue') } },
+            { path: 'my-orders', name: 'My orders', components: { contentView: () => import('@/pages/AccountPages/AccountOrdersPage.vue') } },
+            { path: 'wishlist', name: 'Wishlist', components: { contentView: () => import('@/pages/AccountPages/AccountWishlistPage.vue') } },
+            { path: 'recently-viewed', name: 'Recently-viewed', components: { contentView: () => import('@/pages/AccountPages/AccountRecentlyPage.vue') } },
+            { path: 'reviews', name: 'Reviews', components: { contentView: () => import('@/pages/AccountPages/AccountReviewsPage.vue') } },
         ]
     },
 ]

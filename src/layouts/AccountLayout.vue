@@ -3,6 +3,7 @@
     <PreHeader v-if="!isMobile" />
     <TheHeader />
     <HeaderSpecialOffers />
+    <BreadCrumbs />
     <main class="main container">
       <aside class="sidebar">
         <SidebarAccount :user="getAccount" />
@@ -40,10 +41,12 @@ import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
 import LogIn from "@/components/auth/LogIn.vue";
 import SignUp from "@/components/auth/SignUp.vue";
 import SidebarAccount from "@/components/core/sidebars/SidebarAccount.vue";
+import BreadCrumbs from "@/components/core/paginations/BreadCrumbs.vue";
 export default {
   name: 'AccountLayout',
 
   components: {
+    BreadCrumbs,
     SidebarAccount,
     SignUp,
     LogIn,

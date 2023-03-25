@@ -8,8 +8,8 @@
       <router-link
         v-for="(item, index) in i18nAccount.nav"
         :key="`${item.path}_${index}`"
-        :to="item.path"
-        :class="{'_active-link': currentLink === item.path}"
+        :to="`${item.path}`"
+        :class="{'_active-link': currentNameLink === item.name}"
         class="sidebar-account__link"
       >
         <template
@@ -55,7 +55,7 @@ export default {
 
   data() {
     return {
-      currentLink: window.location.hash.split('/')[2]
+      currentNameLink: this.$router.history.current.name
     }
   },
 
@@ -71,7 +71,8 @@ export default {
 
   watch: {
     '$route'(newValue) {
-      this.currentLink = newValue.path.split('/')[2]
+      console.log('RO', newValue)
+      this.currentNameLink = newValue.name
     }
   },
 

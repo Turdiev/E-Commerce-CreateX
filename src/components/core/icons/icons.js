@@ -14,6 +14,7 @@ import IconEye from "@/components/core/icons/IconEye.vue";
 import IconEyeClosed from "@/components/core/icons/IconEyeClosed.vue";
 import IconBag from "@/components/core/icons/IconBag.vue";
 import IconLogOut from "@/components/core/icons/IconLogOut.vue";
+import IconHome from "@/components/core/icons/IconHome.vue";
 
 export const components = [
     IconFlagUsa,
@@ -31,7 +32,8 @@ export const components = [
     IconEye,
     IconEyeClosed,
     IconBag,
-    IconLogOut
+    IconLogOut,
+    IconHome
 ]
 
 
