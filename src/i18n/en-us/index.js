@@ -5,23 +5,23 @@ export default {
     menu: [
       {
         name: 'Women',
-        path: 'category/'
+        path: '/category/women'
       },
       {
         name: 'Men',
-        path: 'category/'
+        path: '/category/men'
       },
       {
         name: 'Girls',
-        path: 'category/'
+        path: '/category/girls'
       },
       {
         name: 'Boys',
-        path: 'category/'
+        path: '/category/boys'
       },
       {
         name: 'Sale',
-        path: 'category/'
+        path: '/category/sale'
       },
     ],
     inputSearch: {
@@ -97,7 +97,7 @@ export default {
         list: [
           {
             linkName: 'Coats',
-            path: '/'
+            path: '/category/women/clothes?filter=coats'
           },
           {
             linkName: 'Jackets',

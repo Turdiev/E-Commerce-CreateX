@@ -72,7 +72,7 @@ export default {
     },
 
     goToProfilePage() {
-      this.$router.push('/account/my-profile')
+      this.$router.push({name: 'My profile'})
     }
   }
 }

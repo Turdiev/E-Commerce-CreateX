@@ -6,7 +6,14 @@ export const routes = [
         path: '/',
         components: { LayoutView: () => DefaultLayout },
         children: [
-            { path: '', components: { contentView: () => import('@/pages/HomePage.vue') } }
+            { path: '', components: { contentView: () => import('@/pages/HomePage.vue') } },
+            {
+                path: '/category/:category',
+                components: { contentView: () => import('@/pages/CatalogPage.vue') },
+                children: [
+                    { path: '/category/:category/:subcategory', components: { contentView: () => import('@/pages/CatalogPage.vue') } }
+                ]
+            },
         ]
     },
     {

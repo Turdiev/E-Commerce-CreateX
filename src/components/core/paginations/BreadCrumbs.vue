@@ -24,26 +24,58 @@
 
 <script>
 
+import mixinChangeWithText from "@/mixins/mixin-change-with-text";
+
 export default {
   name: 'BreadCrumbs',
 
+  mixins: [ mixinChangeWithText ],
+
   data() {
     return {
-      breadCrumbs: this.$router.history.current.matched,
-      currentNameLink: this.$router.history.current.name,
+      breadCrumbs: [],
+      currentNameLink: null
     }
   },
 
   watch: {
     '$route'(newValue) {
-      console.log('VAL', newValue)
-      this.breadCrumbs = newValue.matched
-      this.currentNameLink = newValue.name
+      this.createsBreadcrumbs(newValue)
     }
   },
 
-  methods: {
+  mounted() {
+    this.createsBreadcrumbs(this.$route)
+  },
 
+  methods: {
+    createsBreadcrumbs(url) {
+      this.breadCrumbs = []
+
+      // Добавление хлебных крошек для текущего маршрута
+      url.matched.forEach((route) => {
+        if (route.path === '') {
+          return
+        }
+
+        let name = route.name
+        let path = route.path.replace(/\/$/, '')
+
+        // Добавление динамических параметров в ссылку хлебных крошек
+        const dynamicParams = route.path.match(/:(\w+)/g)
+        if (dynamicParams) {
+          dynamicParams.forEach(param => {
+            const paramValue = url.params[param.slice(1)]
+            if (paramValue) {
+              name = paramValue
+              path = path.replace(param, paramValue)
+            }
+          })
+        }
+        this.breadCrumbs.push({ name: this.capitalizesFirstLetter(name), path })
+        this.currentNameLink = name
+      })
+    }
   }
 
 }
