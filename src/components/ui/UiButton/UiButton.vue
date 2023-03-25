@@ -11,7 +11,7 @@
       v-if="isIcon"
       class="button__icon"
     >
-      <slot name="icon"/>
+      <slot name="icon" />
     </div>
     <div
       class="button__label"

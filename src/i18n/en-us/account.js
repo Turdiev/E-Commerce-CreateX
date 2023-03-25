@@ -3,28 +3,28 @@ export default {
     logOut: 'Sign out',
     nav: [
         {
-            name: 'My Profile',
-            path: 'my-profile',
+            name: 'My profile',
+            path: '/account/my-profile',
             icon: 'IconProfile'
         },
         {
             name: 'My orders',
-            path: 'my-orders',
+            path: '/account/my-orders',
             icon: 'IconBag'
         },
         {
             name: 'Wishlist',
-            path: 'my-wishlist',
+            path: '/account/wishlist',
             icon: 'IconFavorites'
         },
         {
             name: 'Recently viewed',
-            path: 'my-recently-viewed',
+            path: '/account/recently-viewed',
             icon: 'IconEye'
         },
         {
             name: 'My reviews',
-            path: 'my-reviews',
+            path: '/account/reviews',
             icon: 'IconStarRating'
         },
 

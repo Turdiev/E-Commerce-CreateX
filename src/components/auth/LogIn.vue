@@ -158,11 +158,12 @@ export default {
               this.alertMessage = res.message
             }
             this.isShowAlert = true
+
+            setTimeout(() => {
+              this.isShowAlert = false
+              this.onCloseModalWindow('signIn', 'auth/changeStateModal')
+            }, 2000)
           })
-      setTimeout(() => {
-        this.isShowAlert = false
-        this.onCloseModalWindow('signIn', 'auth/changeStateModal')
-      }, 2000)
     },
     onOpenSignUpForm() {
       this.onCloseModalWindow('signIn', 'auth/changeStateModal')
