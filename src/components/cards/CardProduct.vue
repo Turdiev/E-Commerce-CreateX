@@ -171,7 +171,6 @@ export default {
     },
 
     selectColorOption(color) {
-      console.log('Color', color)
       this.colorSelect = color
     },
 

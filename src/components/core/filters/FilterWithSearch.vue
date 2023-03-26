@@ -2,7 +2,6 @@
   <div class="filter-with-search">
     <UiSelectFilter
       label="Clothes"
-      class="filter-with-search__select"
       @click="onOpenFilter"
     >
       <template #body>
@@ -21,7 +20,6 @@
               type="text"
               size="regular"
               placeholder="Search type"
-              class="input"
             >
               <slot>
                 <IconSearch />
@@ -100,11 +98,7 @@ export default {
 
 <style lang="scss" scoped>
 .filter-with-search {
-  width: 255px;
-
-  &__select {
-
-  }
+  width: 255px; //TODO
 
   &__wrapper {
     width: 100%;
@@ -113,10 +107,6 @@ export default {
 
   &__input-search {
     padding-top: 16px;
-
-    & .input {
-
-    }
   }
 
   &__category-list {
