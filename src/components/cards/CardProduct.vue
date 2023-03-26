@@ -76,18 +76,14 @@
                 </div>
               </div>
               <div class="card-product__colors">
-                <div
+                <UiColor
                   v-for="color in product.colors"
                   :key="color"
-                  class="card-product__color"
-                  :class="{'_color-selected': colorSelect === color}"
-                >
-                  <div
-                    class="card-product__color-ellipse"
-                    :style="{background: color}"
-                    @click="selectColorOption(color)"
-                  />
-                </div>
+                  :is-active="colorSelect === color"
+                  :color="color"
+                  size="small"
+                  @click="selectColorOption(color)"
+                />
               </div>
             </div>
             <UiButton
@@ -111,10 +107,12 @@
 <script>
 import UiButton from "@/components/ui/UiButton/UiButton.vue";
 import CardRating from "@/components/cards/components/CardRating.vue";
+import UiColor from "@/components/ui/UiColor.vue";
 
 export default {
   name: 'CardProduct',
   components: {
+    UiColor,
     CardRating,
     UiButton
   },
@@ -173,6 +171,7 @@ export default {
     },
 
     selectColorOption(color) {
+      console.log('Color', color)
       this.colorSelect = color
     },
 
@@ -359,27 +358,6 @@ export default {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-
-  &__color {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    border: 1px solid $gray-400;
-    border-radius: 50%;
-    cursor: pointer;
-
-    &-ellipse {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-    }
-
-    &._color-selected {
-      border: 1px solid #17696A;
-    }
   }
 
   &__button {
