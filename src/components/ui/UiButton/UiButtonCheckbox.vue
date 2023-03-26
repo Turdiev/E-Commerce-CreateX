@@ -19,7 +19,10 @@
         />
       </transition>
     </div>
-    <span class="checkbox__label">{{ label }}</span>
+    <span
+      class="checkbox__label"
+      :class="{'_font-size': name === 'subscribe'}"
+    >{{ label }}</span>
   </div>
 </template>
 
@@ -92,9 +95,13 @@ export default {
 
   &__label {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 160%;
     color: $gray-800;
+
+    &._font-size {
+      font-size: 16px;
+    }
   }
 }
 </style>

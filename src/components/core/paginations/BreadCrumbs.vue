@@ -73,7 +73,7 @@ export default {
           })
         }
         this.breadCrumbs.push({ name: this.capitalizesFirstLetter(name), path })
-        this.currentNameLink = name
+        this.currentNameLink = this.capitalizesFirstLetter(name)
       })
     }
   }

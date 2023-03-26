@@ -43,7 +43,7 @@
             <UiButtonCheckbox
               :value="checkbox"
               :label="i18nForm.agree"
-              name="checkbox"
+              name="subscribe"
               @change="onClickCheckbox()"
             />
           </div>
