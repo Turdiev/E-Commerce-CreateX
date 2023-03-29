@@ -6,7 +6,6 @@
     >
       <template #body>
         <div
-          v-if="isOpenFilter"
           key="body"
           class="filter-with-search__wrapper"
         >
@@ -30,7 +29,6 @@
             :class-list="{
               'gap': '8px',
               'max-height': '174px',
-              'margin-top': '18px'
             }"
           >
             <UiButtonCheckbox
@@ -101,12 +99,11 @@ export default {
   width: 255px; //TODO
 
   &__wrapper {
-    width: 100%;
     height: 100%;
+    margin-top: 18px;
   }
 
   &__input-search {
-    padding-top: 16px;
   }
 
   &__category-list {

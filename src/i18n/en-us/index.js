@@ -114,6 +114,22 @@ export default {
           {
             linkName: 'Cardigans & sweaters',
             path: '/'
+          },
+          {
+            linkName: 'Cardigans & sweaters',
+            path: '/'
+          },
+          {
+            linkName: 'Dresses ',
+            path: '/'
+          },
+          {
+            linkName: 'Cardigans & sweaters',
+            path: '/'
+          },
+          {
+            linkName: 'Cardigans & sweaters',
+            path: '/'
           }
         ]
       },

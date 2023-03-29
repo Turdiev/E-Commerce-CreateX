@@ -17,20 +17,20 @@
       </div>
     </div>
     <div
+      ref="filterBody"
       class="UiSelectFilter__body"
-      :class="{'_show-body': isShow}"
     >
-      <transition
-        name="fade"
-        mode="out-in"
+      <div
+        ref="hiddenHeightBody"
       >
         <slot name="body" />
-      </transition>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import TweenLite from 'gsap';
 
 export default {
   name: 'UiSelectFilter',
@@ -44,14 +44,36 @@ export default {
 
   data() {
     return {
-      isShow: false
+      isShow: false,
+      hiddenHeightBody: 0,
+      duration: 0.3
     }
   },
 
   methods: {
     onClick() {
       this.isShow = !this.isShow
+      this.calculateHeight()
+      if (this.isShow) {
+        TweenLite.to(this.$refs.filterBody, this.duration, {height: this.hiddenHeightBody, opacity: 1});
+      } else {
+        TweenLite.to(this.$refs.filterBody, this.duration, {height: 0, opacity: 0});
+      }
       this.$emit('click')
+    },
+
+    calculateHeight() {
+      this.hiddenHeightBody = 0;
+
+      [...this.$refs.hiddenHeightBody.children].forEach((child) => {
+        let elementStyles = window.getComputedStyle(child),
+            elementHeight =
+            child.offsetHeight +
+            parseInt(elementStyles.marginTop, 10) +
+            parseInt(elementStyles.marginBottom, 10);
+
+        this.hiddenHeightBody += elementHeight
+      })
     }
   }
 }
@@ -63,7 +85,6 @@ export default {
   height: 100%;
   background: transparent;
   border-bottom: 1px solid $gray-300;
-  //border-bottom: 1px solid $red;
   padding-bottom: 20px;
 
   & span {
@@ -79,18 +100,14 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 26px;
+    height: 46px;
     padding-top: 20px;
   }
 
   &__body {
     height: 0;
-    transition: height .4s ease-out;
-
-    &._show-body {
-      height: 100%;
-      transition: height .3s ease-out;
-    }
+    opacity: 0;
+    overflow: hidden;
   }
 
   &__wrapper {
@@ -104,17 +121,5 @@ export default {
     cursor: pointer;
     stroke: $primary;
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s ease;
-}
-
-.fade-enter,
-.fade-leave-to {
-  height: 0;
-  opacity: 0;
-  transform: translateY(-20px);
 }
 </style>

@@ -6,7 +6,6 @@
     >
       <template #body>
         <div
-          v-if="isOpenFilter"
           class="filter-color__body"
         >
           <UiScrollContainer
@@ -24,6 +23,7 @@
                 :color="color"
                 :label="color"
                 size="medium"
+                class="filter-color__item"
                 @click="selectColorOption(color)"
               />
             </div>
@@ -87,9 +87,12 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    //gap: 8px;
     width: 100%;
     height: 100%;
+  }
+
+  &__item {
+    width: 60px;
   }
 }
 </style>

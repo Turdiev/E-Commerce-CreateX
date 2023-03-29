@@ -26,6 +26,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   overflow-y: auto;
+  margin-top: 18px;
 
   &::-webkit-scrollbar {
     width: 3px;
