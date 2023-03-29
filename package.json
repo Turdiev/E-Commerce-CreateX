@@ -12,6 +12,7 @@
     "core-js": "^3.8.3",
     "eslint-config-airbnb": "^19.0.4",
     "graphql": "^15.8.0",
+    "gsap": "^3.11.5",
     "node-sass": "^8.0.0",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
@@ -21,6 +22,7 @@
     "vue-i18n": "^8.28.2",
     "vue-mq": "^1.0.1",
     "vue-router": "^3.5.1",
+    "vue-slider-component": "^3.2.24",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
