@@ -3,27 +3,11 @@
     <BreadCrumbs />
     <div class="container">
       <div class="catalog__wrapper">
-        <aside
+        <SidebarFilters
           v-if="!isMobile"
           class="catalog__aside"
-        >
-          <FilterWithSearch
-            :categories="i18nGetCategories[0].list"
-          />
-          <FilterWithSearch
-            :categories="i18nGetCategories[1].list"
-          />
-          <FilterColor
-            :colors="colors"
-          />
-          <FilterRange
-            :min-price="minPrice"
-            :max-price="maxPrice"
-            :min-value="minPriceValue"
-            :max-value="maxPriceValue"
-            @change="onFilterChange"
-          />
-        </aside>
+          :categories="i18nGetCategories"
+        />
         <main class="catalog__main">
           <CardProduct
             v-for="(product, index) in getProductsListMob"
@@ -39,32 +23,15 @@
 
 <script>
 import BreadCrumbs from "@/components/core/paginations/BreadCrumbs.vue";
-import FilterWithSearch from "@/components/core/filters/FilterWithSearch.vue";
-import FilterColor from "@/components/core/filters/FilterColor.vue";
-import FilterRange from "@/components/core/filters/FilterRange.vue";
 import CardProduct from "@/components/cards/CardProduct.vue";
+import SidebarFilters from "@/components/core/sidebars/SidebarFilters.vue";
 
 export default {
   name: 'CatalogPage',
   components: {
+    SidebarFilters,
     CardProduct,
-    FilterRange,
-    FilterColor,
-    FilterWithSearch,
     BreadCrumbs
-  },
-
-  data() {
-    return {
-      colors: [
-          '#19a2e7', '#874E19', '#000000', '#D5A371FF', '#19A2E7FF', '#19a2e7', '#874E19', '#000000', '#D5A371FF', '#19A2E7FF',
-        '#19a2e7', '#874E19', '#000000', '#D5A371FF', '#19A2E7FF', '#19a2e7', '#874E19', '#000000', '#D5A371FF', '#19A2E7FF'
-      ],
-      minPrice: 0,
-      maxPrice: 10000,
-      minPriceValue: 0,
-      maxPriceValue: 10000,
-    }
   },
 
   computed: {
@@ -89,14 +56,6 @@ export default {
   },
 
   methods: {
-    onClick() {
-      console.log('SDSDSS')
-    },
-
-    onFilterChange(value) {
-      this.minPriceValue = value[0]
-      this.maxPriceValue = value[1]
-    }
   }
 }
 </script>
@@ -125,6 +84,10 @@ export default {
     gap: 20px;
     width: 100%;
     height: 100%;
+
+    @include respond-to(mobile) {
+      justify-content: center;
+    }
   }
 }
 </style>
