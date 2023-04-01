@@ -1,5 +1,6 @@
 import auth from "@/i18n/en-us/auth";
 import account from "@/i18n/en-us/account";
+import filter from "@/i18n/en-us/filter";
 export default {
   header: {
     menu: [
@@ -393,6 +394,7 @@ export default {
   },
 
   auth,
-  account
+  account,
+  filter,
 }
   
