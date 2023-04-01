@@ -40,7 +40,7 @@ import PreHeader from "@/components/header/PreHeader.vue";
 import HeaderSpecialOffers from "@/components/header/HeaderSpecialOffers.vue";
 import LogIn from "@/components/auth/LogIn.vue";
 import SignUp from "@/components/auth/SignUp.vue";
-import SidebarAccount from "@/components/core/sidebars/SidebarAccount.vue";
+import SidebarAccount from "@/components/core/interface/sidebars/SidebarAccount.vue";
 import BreadCrumbs from "@/components/core/paginations/BreadCrumbs.vue";
 export default {
   name: 'AccountLayout',

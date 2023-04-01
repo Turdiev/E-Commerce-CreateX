@@ -2,7 +2,7 @@ const state = {
     newArrivals: [
         [
             {
-                image: 'no-picture.png',
+                image: 'picture.png',
                 name: 'Black and white sport cap',
                 price: '$18.15',
                 old_price: '',

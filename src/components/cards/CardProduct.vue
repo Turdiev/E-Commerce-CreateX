@@ -193,6 +193,7 @@ export default {
     align-items: flex-end;
     width: 100%;
     padding: 16px;
+    cursor: pointer;
 
     &-wrap {
       display: flex;
