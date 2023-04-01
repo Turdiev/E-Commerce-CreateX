@@ -55,9 +55,15 @@ export default {
       this.isShow = !this.isShow
       this.calculateHeight()
       if (this.isShow) {
-        TweenLite.to(this.$refs.filterBody, this.duration, {height: this.hiddenHeightBody, opacity: 1});
+        TweenLite.to(this.$refs.filterBody, this.duration, {
+          height: this.hiddenHeightBody,
+          opacity: 1
+        });
       } else {
-        TweenLite.to(this.$refs.filterBody, this.duration, {height: 0, opacity: 0});
+        TweenLite.to(this.$refs.filterBody, this.duration, {
+          height: 0,
+          opacity: 0
+        });
       }
       this.$emit('click')
     },
