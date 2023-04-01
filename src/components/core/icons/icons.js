@@ -17,6 +17,7 @@ import IconLogOut from "@/components/core/icons/IconLogOut.vue";
 import IconHome from "@/components/core/icons/IconHome.vue";
 import IconPlus from "@/components/core/icons/IconPlus.vue";
 import IconMinus from "@/components/core/icons/IconMinus.vue";
+import IconFilter from "@/components/core/icons/IconFilter.vue";
 
 export const components = [
     IconFlagUsa,
@@ -37,7 +38,8 @@ export const components = [
     IconLogOut,
     IconHome,
     IconPlus,
-    IconMinus
+    IconMinus,
+    IconFilter
 ]
 
 
